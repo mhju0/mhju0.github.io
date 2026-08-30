@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주민현 · Min Hyun Ju</title>
+<meta name="description" content="AI 백엔드 개발자. LLM이 말한 것을 검증하는 서비스를 만듭니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<style>
+/* ─────────────────────────────────────────────
+   tokens — light is the base, dark redefines only
+   ───────────────────────────────────────────── */
+:root {
+  --bg:      #EFF0F2;   /* cool report stock */
+  --bg-alt:  #E4E6EA;
+  --ink:     #14171C;   /* blue-black */
+  --dim:     #575E69;
+  --faint:   #646C77;
+  --accent:  #8C2F3E;   /* annotation oxblood */
+  --rule:    #D3D7DD;
+
+  --sans: "IBM Plex Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --measure: 34rem;
+  --gutter: 4.5rem;
+  --band: 7rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:     #14161A;
+    --bg-alt: #1C1F25;
+    --ink:    #E7E9ED;
+    --dim:    #98A0AC;
+    --faint:  #808894;
+    --accent: #E8697F;
+    --rule:   #282C33;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:     #14161A;
+  --bg-alt: #1C1F25;
+  --ink:    #E7E9ED;
+  --dim:    #98A0AC;
+  --faint:  #808894;
+  --accent: #E8697F;
+  --rule:   #282C33;
+}
+
+/* ─────────────────────────────────────────────
+   base
+   ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "kern" 1;
+  /* Korean must not break inside an eojeol */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+/* ─────────────────────────────────────────────
+   the grid — label and content share a row, so the
+   label's baseline lands on the heading's baseline
+   ───────────────────────────────────────────── */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 0 var(--gutter);
+  align-items: baseline;
+}
+
+.spine { text-align: right; }
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.005em;
+  margin: 0;
+}
+.label + .meta { margin-top: 1.5rem; }
+
+/* margin metadata — period and role, nothing else */
+.meta {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.9;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   nav
+   ───────────────────────────────────────────── */
+header.nav {
+  padding: 1.75rem 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.wordmark { font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.005em; }
+.nav-links { display: flex; gap: 1.5rem; align-items: baseline; }
+.nav-links a, .langtoggle {
+  font-size: 0.8125rem;
+  color: var(--dim);
+  transition: color 0.15s ease;
+}
+.nav-links a:hover, .langtoggle:hover { color: var(--accent); }
+.langtoggle {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+}
+
+/* ─────────────────────────────────────────────
+   hero
+   ───────────────────────────────────────────── */
+.hero { padding: 8rem 0 var(--band); }
+.hero-lede {
+  font-size: clamp(1.5rem, 3.1vw, 2.125rem);
+  line-height: 1.36;
+  font-weight: 300;
+  letter-spacing: -0.021em;
+  margin: 0 0 2.25rem;
+  max-width: 22em;
+  text-wrap: balance;
+}
+.hero-lede em { font-style: normal; font-weight: 500; }
+.hero-sub {
+  color: var(--dim);
+  max-width: var(--measure);
+  margin: 0 0 2rem;
+  font-size: 0.9375rem;
+}
+.hero-meta {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--faint);
+  margin: 0;
+}
+.hero-meta a { border-bottom: 1px solid var(--rule); }
+.hero-meta a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ─────────────────────────────────────────────
+   sections
+   ───────────────────────────────────────────── */
+section { padding-bottom: var(--band); }
+.rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 0 0 2.5rem;
+}
+.entry { padding-bottom: 3.5rem; }
+.entry:last-child { padding-bottom: 0; }
+
+/* content column: one rhythm, so nothing depends on
+   per-element margins lining up by accident */
+.col > * + * { margin-top: 0.875rem; }
+
+.entry h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.75rem;
+}
+.entry h3 .out,
+.minor h4 .out {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: var(--faint);
+  border-bottom: 1px solid var(--rule);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.entry h3 .out:hover,
+.minor h4 .out:hover { color: var(--accent); border-color: var(--accent); }
+
+.col p {
+  margin: 0;
+  max-width: var(--measure);
+  font-size: 0.9375rem;
+}
+.col p.body { color: var(--ink); }
+.col p.hard { color: var(--dim); }
+.col p.hard b { color: var(--accent); font-weight: 500; }
+.col p.body code, .col p.hard code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--bg-alt);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+.col p.stack {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--faint);
+  letter-spacing: -0.005em;
+  line-height: 1.75;
+  margin-top: 1.25rem;
+}
+
+/* compact list — secondary projects */
+.minor { display: grid; gap: 1.5rem; max-width: var(--measure); }
+.minor div { display: grid; gap: 0.1875rem; }
+.minor h4 { font-size: 0.9375rem; font-weight: 500; margin: 0; }
+.minor h4 .out { margin-left: 0.625rem; }
+.minor p { margin: 0; font-size: 0.875rem; color: var(--dim); }
+
+/* stack */
+.stackgroup { display: grid; gap: 1.75rem; max-width: var(--measure); margin: 0; }
+.stackgroup dt {
+  font-size: 0.75rem; font-weight: 500; color: var(--ink);
+  letter-spacing: 0.02em; text-transform: uppercase; margin: 0 0 0.375rem;
+}
+.stackgroup dd {
+  margin: 0; font-family: var(--mono); font-size: 0.75rem;
+  color: var(--dim); line-height: 1.85; letter-spacing: -0.005em;
+}
+
+/* unmeasured — deliberately colorless */
+.unmeasured .label { color: var(--faint); }
+.unmeasured p { color: var(--dim); }
+.unmeasured ul {
+  margin: 0; padding: 0; list-style: none;
+  max-width: var(--measure);
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--faint); line-height: 2;
+}
+.unmeasured li::before { content: "— "; }
+
+/* contact */
+a.mail {
+  font-size: 1.0625rem;
+  border-bottom: 1px solid var(--rule);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+a.mail:hover { color: var(--accent); border-color: var(--accent); }
+
+footer {
+  padding: 3rem 0 4rem;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 0.6875rem; color: var(--faint);
+}
+
+/* ─────────────────────────────────────────────
+   language switching — defaults to Korean with no attribute
+   ───────────────────────────────────────────── */
+:root:not([data-lang="en"]) .en { display: none; }
+:root[data-lang="en"] .ko { display: none; }
+
+/* ─────────────────────────────────────────────
+   load-in — one quiet moment, nothing on scroll
+   ───────────────────────────────────────────── */
+@keyframes rise { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }
+.hero-lede, .hero-sub, .hero-meta { animation: rise 0.62s cubic-bezier(0.22, 0.8, 0.3, 1) backwards; }
+.hero-sub  { animation-delay: 0.07s; }
+.hero-meta { animation-delay: 0.13s; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ─────────────────────────────────────────────
+   narrow — margin collapses above its content
+   ───────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .wrap { padding: 0 1.5rem; }
+  :root { --band: 4.5rem; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; align-items: start; }
+  .spine { text-align: left; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 1.25rem; }
+  .label + .meta { margin-top: 0; }
+  .meta { line-height: 1.7; }
+  .meta br { display: none; }
+  .meta .sep::after { content: " · "; }
+  .hero { padding: 3.5rem 0 var(--band); }
+  .entry { padding-bottom: 2.75rem; }
+  .rule { margin-bottom: 1.75rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="nav">
+    <span class="wordmark">
+      <span class="ko">주민현</span><span class="en">Min Hyun Ju</span>
+    </span>
+    <nav class="nav-links">
+      <a href="https://github.com/mhju0">GitHub</a>
+      <a href="https://velog.io/@mhju">velog</a>
+      <button class="langtoggle" type="button" id="lang" aria-label="Switch language">
+        <span class="ko">EN</span><span class="en">한국어</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ── hero ───────────────────────────────────────── -->
+  <div class="hero">
+    <h1 class="hero-lede">
+      <span class="ko">LLM이 말한 것을 그대로 믿지 않는 백엔드를 만듭니다. <em>무엇을 통과시킬지 먼저 정하고, 그 다음에 숫자를 봅니다.</em></span>
+      <span class="en">I build LLM backends that check the model instead of trusting it — <em>and decide the bar before looking at the numbers.</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span class="ko">AI 백엔드 개발자. 인용 무결성과 수치 가드로 모델 출력을 기계적으로 막고, 실행 중인 API를 상대로 도는 평가 하네스로 답이 맞는지 스스로 채점하게 만듭니다. 만든 것은 배포해서 굴려봅니다 — 현재 실서비스 3개, 그중 둘은 무인 일일 파이프라인 위에 있습니다.</span>
+      <span class="en">Backend engineer working on LLM systems. Citation and number guards block model output mechanically, and a golden-set harness run against the live API scores whether the answers are actually right. Three of these run in production, two on unattended daily pipelines.</span>
+    </p>
+    <p class="hero-meta">
+      <span class="ko">서울 · 원어민 수준 영어 · </span><span class="en">Seoul, South Korea · native-level English · </span><a href="mailto:michael.mh.ju@gmail.com">michael.mh.ju@gmail.com</a>
+    </p>
+  </div>
+
+  <!-- ── projects ───────────────────────────────────── -->
+  <section>
+    <hr class="rule">
+
+    <div class="row entry">
+      <div class="spine">
+        <h2 class="label"><span class="ko">만든 것</span><span class="en">Projects</span></h2>
+        <p class="meta">
+          <span class="sep">2026.07 — 08</span><br>
+          <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
+        </p>
+      </div>
+      <div class="col">
+        <h3>filing-digest
+          <a class="out" href="https://github.com/mhju0/filing-digest">GitHub ↗</a>
+          <a class="out" href="https://mhju0.github.io/filing-digest/"><span class="ko">워크스루 ↗</span><span class="en">Walkthrough ↗</span></a>
+        </h3>
+        <p class="body">
+          <span class="ko">한국 DART와 미국 SEC 공시를 이중언어로 읽어주는 앱의 백엔드. 정확한 재무 수치는 LLM 바깥의 구조화 데이터 경로에 남깁니다.</span>
+          <span class="en">Backend for an app that reads Korean (DART) and US (SEC) filings in both languages, keeping exact financial figures on a structured-data path outside the LLM.</span>
+        </p>
+        <p class="hard">
+          <span class="ko"><b>어려웠던 지점 —</b> 가드가 프롬프트가 아니라 기계적입니다. 인용이 비었거나 출처를 특정할 수 없으면 서술 전체를 차단하고, 모델이 쓴 재무 수치 패턴은 정규식으로 막습니다. 둘 중 하나만 실패해도 서술은 버리고 구조화 수치는 남깁니다. 그게 실제로 되는지는 골든셋 24케이스를 실행 중인 API에 그대로 돌려 채점하는데, 최근 실행에서 24케이스를 모두 통과했고 검색은 Hit@1 0.900 · MRR 0.950이었습니다.</span>
+          <span class="en"><b>The hard part —</b> the guards are mechanical, not prompt-level. A missing or unresolvable citation rejects the entire narrative, and anchored financial figures written by the model are blocked by pattern; either failure discards the prose and keeps the structured numbers. Whether that actually holds is scored by running a 24-case golden set against the live API — the most recent run passed all 24, with retrieval at Hit@1 0.900 and MRR 0.950.</span>
+        </p>
+        <p class="stack">FastAPI · PostgreSQL 16 + pgvector (HNSW) · KURE-v1 · Upstage Solar · SwiftUI · Docker Compose</p>
+      </div>
+    </div>
+
+    <div class="row entry">
+      <div class="spine">
+        <p class="meta">
+          <span class="sep">2026.03 — <span class="ko">진행 중</span><span class="en">ongoing</span></span><br>
+          <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
+        </p>
+      </div>
+      <div class="col">
+        <h3>fullcourt
+          <a class="out" href="https://fullcourt-nba.vercel.app">Live ↗</a>
+          <a class="out" href="https://github.com/mhju0/fullcourt">GitHub ↗</a>
+        </h3>
+        <p class="body">
+          <span class="ko">이동거리·휴식일·일정 밀도로 NBA 팀의 피로도를 점수화하고 경기 결과를 예측합니다. 1985-86 시즌까지 거슬러 27,400경기를 백테스트했습니다.</span>
+          <span class="en">Scores what the NBA schedule does to a team — travel, rest, density — and predicts results, backtested across 27,400 games to the 1985–86 season.</span>
+        </p>
+        <p class="hard">
+          <span class="ko"><b>어려웠던 지점 —</b> 학습한 피로도 가중치가 손으로 맞춘 값을 이겼는데도 배포하지 않았습니다. 숫자를 보기 전에 통과 기준을 먼저 적어뒀고, 그 기준에 못 미쳤기 때문입니다.</span>
+          <span class="en"><b>The hard part —</b> learned fatigue weights beat my hand-tuned ones and I still didn't ship them. The bar had been written down before the numbers came in, and they didn't clear it.</span>
+        </p>
+        <p class="stack">Next.js 16 (App Router) · React 19 · TypeScript strict · Tailwind v4 · Supabase/PostgreSQL · Drizzle · scikit-learn · Playwright</p>
+      </div>
+    </div>
+
+    <div class="row entry">
+      <div class="spine">
+        <p class="meta">
+          <span class="sep">2026.06 — <span class="ko">진행 중</span><span class="en">ongoing</span></span><br>
+          <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
+        </p>
+      </div>
+      <div class="col">
+        <h3><span class="ko">오늘비</span><span class="en">raintoday</span>
+          <a class="out" href="https://raintoday.vercel.app">Live ↗</a>
+          <a class="out" href="https://github.com/mhju0/raintoday">GitHub ↗</a>
+        </h3>
+        <p class="body">
+          <span class="ko">전국 강수 예보를 "오는지"가 아니라 "언제 오는지"로 답합니다. 기상청 관측지점마다 예보 성능을 따로 학습합니다.</span>
+          <span class="en">A nationwide rain forecast that answers <em>when</em> it rains, not just whether — learning forecast performance separately at each weather station.</span>
+        </p>
+        <p class="hard">
+          <span class="ko"><b>어려웠던 지점 —</b> 자기 학습을 언제 믿을지 정하는 것. 하루 두 번, 결과가 존재하기 전에 적응형과 균등 가중 예보를 지점마다 함께 얼려 저장하고, 동일한 집합에서 채점한 뒤, 적응형이 지는 날에는 학습을 스스로 정지시킵니다.</span>
+          <span class="en"><b>The hard part —</b> deciding when to trust its own learning. Twice a day it freezes both the adaptive and equal-weight blends at every station <em>before</em> the outcome exists, scores them on the identical set, and suspends learning on days the adaptive one loses.</span>
+        </p>
+        <p class="stack">TypeScript · Next.js 16 · React 19 · PostgreSQL · GitHub Actions · Vercel</p>
+      </div>
+    </div>
+
+    <div class="row entry">
+      <div class="spine">
+        <p class="meta">
+          <span class="sep">2026.03 — 08</span><br>
+          <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
+        </p>
+      </div>
+      <div class="col">
+        <h3>stock-game
+          <a class="out" href="https://stock-game-gray.vercel.app">Live ↗</a>
+          <a class="out" href="https://github.com/mhju0/stock-game">GitHub ↗</a>
+        </h3>
+        <p class="body">
+          <span class="ko">한국·미국 주식 모의투자. 원화/달러 이중 통화, 환율, 평균단가, S&amp;P 500·KOSPI 벤치마크 비교.</span>
+          <span class="en">Paper trading for Korean and US equities: dual-currency portfolios, FX, cost basis, and S&amp;P 500 / KOSPI benchmarks.</span>
+        </p>
+        <p class="hard">
+          <span class="ko"><b>어려웠던 지점 —</b> 첫 커밋은 인증도 없이 <code>User.id == 1</code>이 하드코딩된 단일 사용자 앱이었습니다. JWT와 소유권 검증으로 재설계한 뒤, 배포된 서비스를 상대로 제가 직접 보안 감사를 돌려 findings를 문서로 남기고 상위 항목을 고쳤습니다.</span>
+          <span class="en"><b>The hard part —</b> the first commit was a single-user app with <code>User.id == 1</code> hardcoded and no auth at all. After rebuilding it around JWT and ownership checks, I ran my own security audit against the deployed service, wrote up the findings, and fixed the top ones.</span>
+        </p>
+        <p class="stack">FastAPI · PostgreSQL · React · Render · Vercel · GitHub Actions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── team ───────────────────────────────────────── -->
+  <section>
+    <hr class="rule">
+    <div class="row entry">
+      <div class="spine">
+        <h2 class="label"><span class="ko">팀에서</span><span class="en">On a team</span></h2>
+        <p class="meta">
+          <span class="sep">2026.05 — 06</span><br>
+          <span class="ko">5인 팀 · 팀장</span><span class="en">team of 5 · lead</span>
+        </p>
+      </div>
+      <div class="col">
+        <h3>mammacare</h3>
+        <p class="body">
+          <span class="ko">이유식 시기 아기의 알레르기 테스트를 관리하는 서비스. 부트캠프 팀 프로젝트로 만들었고, 팀 백엔드 기반을 세우고 인증·계정과 알림 시스템을 전담했습니다.</span>
+          <span class="en">A service for tracking infant food-allergy trials, built as a bootcamp team project. I set up the team's backend foundation and owned the auth/account and notification systems.</span>
+        </p>
+        <p class="hard">
+          <span class="ko"><b>맡은 것 —</b> JWT 세션, Google·Kakao·Naver 소셜 로그인과 다중 제공자 계정 통합, 로그인 rate limit, 접속 기기 관리, APScheduler + FCM 웹푸시(중복 방지 키 포함). repo 게이트키퍼로 팀원 PR 41건을 리뷰·머지했습니다.</span>
+          <span class="en"><b>What I owned —</b> JWT sessions, Google/Kakao/Naver login with multi-provider account linking, login rate limiting, device management, and APScheduler + FCM web push with de-duplication keys. As repo gatekeeper I reviewed and merged 41 teammate PRs.</span>
+        </p>
+        <p class="stack">FastAPI · PostgreSQL · Azure OpenAI · React · APScheduler · FCM · Azure VM · docker-compose · nginx</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── also ───────────────────────────────────────── -->
+  <section>
+    <hr class="rule">
+    <div class="row">
+      <div class="spine">
+        <h2 class="label"><span class="ko">그 밖에</span><span class="en">Also built</span></h2>
+      </div>
+      <div class="minor">
+        <div>
+          <h4>glass-table <a class="out" href="https://github.com/mhju0/glass-table">GitHub ↗</a></h4>
+          <p><span class="ko">레인지와 EV로 생각하는 법을 가르치는 한국어 우선 홀덤 학습 iOS 앱. 순수 Swift 포커 엔진을 파이썬 오라클과 교차검증하는 release-config CI 게이트로 정확성을 증명했고, 서드파티 의존성은 0입니다.</span><span class="en">Korean-first Hold'em trainer for iOS. A pure-Swift poker engine proves its correctness by cross-checking against a Python oracle in a release-mode CI gate. Zero third-party dependencies.</span></p>
+        </div>
+        <div>
+          <h4>allergy-tracker <a class="out" href="https://github.com/mhju0/allergy-tracker">GitHub ↗</a></h4>
+          <p><span class="ko">팀 프로젝트의 도메인을 혼자 iOS 앱으로 재설계. 음식 상태를 저장하지 않고 트라이얼 이력에서 매번 파생시키기 때문에, 몇 주 뒤 지연 반응을 기록해도 캐시 무효화 없이 상태가 뒤집힙니다.</span><span class="en">The same allergy domain rebuilt alone as an iOS app. Food status is never stored — it's derived from trial history on every read, so a delayed reaction logged weeks later flips a "safe" food back with no cache to invalidate.</span></p>
+        </div>
+        <div>
+          <h4>bill-judge <a class="out" href="https://github.com/mhju0/bill-judge">GitHub ↗</a></h4>
+          <p><span class="ko">술자리 정산을 "계산"이 아니라 "납득 가능한 판결"로 바꾼 로컬 퍼스트 웹앱. BigInt 최대잉여법으로 "참가자 금액의 합 = 결제액" 불변식을 코드로 강제합니다. 서버·계정·외부 API 0.</span><span class="en">A local-first web app that turns splitting a bill into a verdict people accept rather than a number they're handed. A BigInt largest-remainder method enforces "sum of shares = amount paid" as a code-level invariant. No server, no accounts, no external APIs.</span></p>
+        </div>
+        <div>
+          <h4>ssak</h4>
+          <p><span class="ko">현실 시간으로 꽃을 키우는 iOS 게임. 3주 만들고 출시 없이 접었습니다. 테스트는 전부 통과했는데 게임이 재미가 없었고, 그 판단을 조용히 지우는 대신 회고로 공개했습니다.</span><span class="en">A quiet iOS game about growing flowers in real time. Built in three weeks, then shut down without shipping — every test passed and the game still wasn't fun. I published the retrospective rather than quietly deleting it.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── stack ──────────────────────────────────────── -->
+  <section>
+    <hr class="rule">
+    <div class="row">
+      <div class="spine">
+        <h2 class="label"><span class="ko">기술</span><span class="en">Stack</span></h2>
+      </div>
+      <dl class="stackgroup">
+        <div>
+          <dt><span class="ko">매일 쓰는 것</span><span class="en">Daily</span></dt>
+          <dd>Python · FastAPI · PostgreSQL · SQLAlchemy 2 (async) · Pydantic v2 · Alembic · Docker Compose · GitHub Actions</dd>
+        </div>
+        <div>
+          <dt><span class="ko">LLM · 검증</span><span class="en">LLM and evaluation</span></dt>
+          <dd>RAG <span class="ko">파이프라인 설계</span><span class="en">pipeline design</span> · pgvector HNSW · KURE-v1 (1024-dim) · cross-lingual <span class="ko">검색</span><span class="en">retrieval</span> · citation &amp; number guards · <span class="ko">골든셋 평가 하네스</span><span class="en">golden-set harness</span> · Azure OpenAI · Upstage Solar</dd>
+        </div>
+        <div>
+          <dt><span class="ko">데이터 · ML</span><span class="en">Data and ML</span></dt>
+          <dd>scikit-learn · scipy · walk-forward <span class="ko">검증</span><span class="en">validation</span> · <span class="ko">사전등록</span><span class="en">pre-registration</span> · ablation · <span class="ko">백테스트</span><span class="en">backtesting</span> · Brier scoring</dd>
+        </div>
+        <div>
+          <dt><span class="ko">클라이언트</span><span class="en">Client</span></dt>
+          <dd>TypeScript · React 19 · Next.js (App Router) · Tailwind · Swift · SwiftUI · React Native (Expo)</dd>
+        </div>
+        <div>
+          <dt><span class="ko">품질 · 문서</span><span class="en">Quality and docs</span></dt>
+          <dd>pytest · Vitest · Playwright · Swift Testing · fast-check · ADR · <span class="ko">아키텍처 문서</span><span class="en">architecture docs</span> · <span class="ko">보안 감사</span><span class="en">security audits</span></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ── unmeasured ─────────────────────────────────── -->
+  <section class="unmeasured">
+    <hr class="rule">
+    <div class="row">
+      <div class="spine">
+        <h2 class="label"><span class="ko">아직 재지 않은 것</span><span class="en">Not yet measured</span></h2>
+      </div>
+      <div class="col">
+        <p>
+          <span class="ko">위에 쓴 수치는 전부 저장소에서 직접 잰 값입니다. 그래서 아직 재지 않은 것도 적어둡니다 — 물어보시면 "설계로 통제했고 수치는 아직 안 쟀습니다"가 정확한 답입니다.</span>
+          <span class="en">Every figure above was measured directly in the repository. So here is what I haven't measured — if you ask about these, the accurate answer is that I controlled for them by design and haven't put a number on them yet.</span>
+        </p>
+        <ul>
+          <li><span class="ko">LLM 호출 비용과 토큰 사용량</span><span class="en">LLM call cost and token usage</span></li>
+          <li><span class="ko">API 응답시간 p50/p95/p99</span><span class="en">API latency p50/p95/p99</span></li>
+          <li><span class="ko">부하 테스트와 처리량</span><span class="en">Load testing and throughput</span></li>
+          <li><span class="ko">캐시 적중률</span><span class="en">Cache hit rate</span></li>
+          <li><span class="ko">쿼리 실행계획과 before/after 시간</span><span class="en">Query plans and before/after timings</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── contact ────────────────────────────────────── -->
+  <section>
+    <hr class="rule">
+    <div class="row">
+      <div class="spine">
+        <h2 class="label"><span class="ko">연락</span><span class="en">Get in touch</span></h2>
+      </div>
+      <div class="col">
+        <p class="body">
+          <span class="ko">AI · 백엔드 엔지니어링 포지션을 찾고 있습니다.</span>
+          <span class="en">Looking for AI and backend engineering roles.</span>
+        </p>
+        <p><a class="mail" href="mailto:michael.mh.ju@gmail.com">michael.mh.ju@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 <span class="ko">주민현 · 서울</span><span class="en">Min Hyun Ju · Seoul</span></span>
+    <span><span class="ko">최종 갱신</span><span class="en">last updated</span> 2026-08-30</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  try {
+    var saved = localStorage.getItem('lang');
+    if (saved === 'ko' || saved === 'en') root.setAttribute('data-lang', saved);
+  } catch (e) {}
+
+  function sync() {
+    var lang = root.getAttribute('data-lang') === 'en' ? 'en' : 'ko';
+    root.setAttribute('lang', lang);
+    document.title = lang === 'en' ? 'Min Hyun Ju' : '주민현 · Min Hyun Ju';
+  }
+  sync();
+
+  document.getElementById('lang').addEventListener('click', function () {
+    var next = root.getAttribute('data-lang') === 'en' ? 'ko' : 'en';
+    root.setAttribute('data-lang', next);
+    sync();
+    try { localStorage.setItem('lang', next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
