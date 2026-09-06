@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>주민현 · Min Hyun Ju</title>
-<meta name="description" content="AI 백엔드 개발자. LLM이 말한 것을 검증하는 서비스를 만듭니다.">
+<meta name="description" content="Python과 FastAPI로 공시, NBA 일정, 강수 예보 서비스를 만드는 백엔드 개발자입니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
@@ -336,12 +336,12 @@ footer {
   <!-- ── hero ───────────────────────────────────────── -->
   <div class="hero">
     <h1 class="hero-lede">
-      <span class="ko">LLM이 말한 것을 그대로 믿지 않는 백엔드를 만듭니다. <em>무엇을 통과시킬지 먼저 정하고, 그 다음에 숫자를 봅니다.</em></span>
-      <span class="en">I build LLM backends that check the model instead of trusting it — <em>and decide the bar before looking at the numbers.</em></span>
+      <span class="ko">공시를 읽고, 경기 일정을 비교하고, 비 예보를 확인하는 서비스를 만듭니다. <em>Python과 FastAPI로 백엔드를 개발합니다.</em></span>
+      <span class="en">I build tools for reading filings, comparing NBA schedules, and checking rain forecasts. <em>My backend work uses Python and FastAPI.</em></span>
     </h1>
     <p class="hero-sub">
-      <span class="ko">AI 백엔드 개발자. 인용 무결성과 수치 가드로 모델 출력을 기계적으로 막고, 실행 중인 API를 상대로 도는 평가 하네스로 답이 맞는지 스스로 채점하게 만듭니다. 만든 것은 배포해서 굴려봅니다 — 현재 실서비스 3개, 그중 둘은 무인 일일 파이프라인 위에 있습니다.</span>
-      <span class="en">Backend engineer working on LLM systems. Citation and number guards block model output mechanically, and a golden-set harness run against the live API scores whether the answers are actually right. Three of these run in production, two on unattended daily pipelines.</span>
+      <span class="ko">금융과 NBA에 관심이 있어 직접 확인하고 싶었던 정보를 서비스로 구현했습니다. 공시 서비스에서는 생성 설명의 인용과 수치를 검사하고, API 평가로 검색 결과와 응답을 확인합니다.</span>
+      <span class="en">Finance and basketball are personal interests, and I built services to answer questions I had while following them. My filings reader checks citations and numeric patterns in generated explanations, with API evaluations for retrieval and responses.</span>
     </p>
     <p class="hero-meta">
       <span class="ko">서울 · 원어민 수준 영어 · </span><span class="en">Seoul, South Korea · native-level English · </span><a href="mailto:michael.mh.ju@gmail.com">michael.mh.ju@gmail.com</a>
@@ -356,7 +356,7 @@ footer {
       <div class="spine">
         <h2 class="label"><span class="ko">만든 것</span><span class="en">Projects</span></h2>
         <p class="meta">
-          <span class="sep">2026.07 — 08</span><br>
+          <span class="sep">2026.07 ~ 08</span><br>
           <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
         </p>
       </div>
@@ -370,8 +370,8 @@ footer {
           <span class="en">Backend for an app that reads Korean (DART) and US (SEC) filings in both languages, keeping exact financial figures on a structured-data path outside the LLM.</span>
         </p>
         <p class="hard">
-          <span class="ko"><b>어려웠던 지점 —</b> 가드가 프롬프트가 아니라 기계적입니다. 인용이 비었거나 출처를 특정할 수 없으면 서술 전체를 차단하고, 모델이 쓴 재무 수치 패턴은 정규식으로 막습니다. 둘 중 하나만 실패해도 서술은 버리고 구조화 수치는 남깁니다. 그게 실제로 되는지는 골든셋 24케이스를 실행 중인 API에 그대로 돌려 채점하는데, 최근 실행에서 24케이스를 모두 통과했고 검색은 Hit@1 0.900 · MRR 0.950이었습니다.</span>
-          <span class="en"><b>The hard part —</b> the guards are mechanical, not prompt-level. A missing or unresolvable citation rejects the entire narrative, and anchored financial figures written by the model are blocked by pattern; either failure discards the prose and keeps the structured numbers. Whether that actually holds is scored by running a 24-case golden set against the live API — the most recent run passed all 24, with retrieval at Hit@1 0.900 and MRR 0.950.</span>
+          <span class="ko"><b>응답 검증:</b> 인용이 없거나 검색 결과 밖의 출처를 참조하면 생성 설명을 차단합니다. 금융 수치 패턴도 별도로 검사하고, 검사에 실패하면 설명을 제외한 구조화 수치를 반환합니다. 골든셋 질문을 실행 중인 API에 보내 검색 결과와 응답을 평가했습니다.</span>
+          <span class="en"><b>Response checks:</b> missing citations, references outside the retrieved set, or blocked financial-number patterns cause the service to discard the generated explanation and retain structured figures. I evaluated retrieval and responses by sending golden-set questions to the running API.</span>
         </p>
         <p class="stack">FastAPI · PostgreSQL 16 + pgvector (HNSW) · KURE-v1 · Upstage Solar · SwiftUI · Docker Compose</p>
       </div>
@@ -380,7 +380,7 @@ footer {
     <div class="row entry">
       <div class="spine">
         <p class="meta">
-          <span class="sep">2026.03 — <span class="ko">진행 중</span><span class="en">ongoing</span></span><br>
+          <span class="sep">2026.03 ~ <span class="ko">진행 중</span><span class="en">ongoing</span></span><br>
           <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
         </p>
       </div>
@@ -391,11 +391,11 @@ footer {
         </h3>
         <p class="body">
           <span class="ko">이동거리·휴식일·일정 밀도로 NBA 팀의 피로도를 점수화하고 경기 결과를 예측합니다. 1985-86 시즌까지 거슬러 27,400경기를 백테스트했습니다.</span>
-          <span class="en">Scores what the NBA schedule does to a team — travel, rest, density — and predicts results, backtested across 27,400 games to the 1985–86 season.</span>
+          <span class="en">Compares NBA matchups using travel, rest, and schedule density. The schedule view shows fatigue scores and relative rest advantages.</span>
         </p>
         <p class="hard">
-          <span class="ko"><b>어려웠던 지점 —</b> 학습한 피로도 가중치가 손으로 맞춘 값을 이겼는데도 배포하지 않았습니다. 숫자를 보기 전에 통과 기준을 먼저 적어뒀고, 그 기준에 못 미쳤기 때문입니다.</span>
-          <span class="en"><b>The hard part —</b> learned fatigue weights beat my hand-tuned ones and I still didn't ship them. The bar had been written down before the numbers came in, and they didn't clear it.</span>
+          <span class="ko"><b>가중치 평가:</b> 학습한 가중치와 기존 가중치를 비교하고, 개선 폭과 적용 비용을 검토한 뒤 기존 값을 유지했습니다. 실험 결과와 판단 근거는 문서로 남겼습니다.</span>
+          <span class="en"><b>Weight evaluation:</b> I compared learned weights with the existing weights, considered the improvement and migration cost, and documented why I kept the existing version.</span>
         </p>
         <p class="stack">Next.js 16 (App Router) · React 19 · TypeScript strict · Tailwind v4 · Supabase/PostgreSQL · Drizzle · scikit-learn · Playwright</p>
       </div>
@@ -404,7 +404,7 @@ footer {
     <div class="row entry">
       <div class="spine">
         <p class="meta">
-          <span class="sep">2026.06 — <span class="ko">진행 중</span><span class="en">ongoing</span></span><br>
+          <span class="sep">2026.06 ~ <span class="ko">진행 중</span><span class="en">ongoing</span></span><br>
           <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
         </p>
       </div>
@@ -414,12 +414,12 @@ footer {
           <a class="out" href="https://github.com/mhju0/raintoday">GitHub ↗</a>
         </h3>
         <p class="body">
-          <span class="ko">전국 강수 예보를 "오는지"가 아니라 "언제 오는지"로 답합니다. 기상청 관측지점마다 예보 성능을 따로 학습합니다.</span>
-          <span class="en">A nationwide rain forecast that answers <em>when</em> it rains, not just whether — learning forecast performance separately at each weather station.</span>
+          <span class="ko">우산이 필요한 시간을 확인할 수 있도록 시간별 강수 예보를 보여줍니다. 관측지점별로 예보와 관측값을 비교합니다.</span>
+          <span class="en">Hourly rain forecasts to help decide when to carry an umbrella. The service compares forecasts with observations at individual weather stations.</span>
         </p>
         <p class="hard">
-          <span class="ko"><b>어려웠던 지점 —</b> 자기 학습을 언제 믿을지 정하는 것. 하루 두 번, 결과가 존재하기 전에 적응형과 균등 가중 예보를 지점마다 함께 얼려 저장하고, 동일한 집합에서 채점한 뒤, 적응형이 지는 날에는 학습을 스스로 정지시킵니다.</span>
-          <span class="en"><b>The hard part —</b> deciding when to trust its own learning. Twice a day it freezes both the adaptive and equal-weight blends at every station <em>before</em> the outcome exists, scores them on the identical set, and suspends learning on days the adaptive one loses.</span>
+          <span class="ko"><b>가중치 적용 조건:</b> 적응형과 균등 가중 예보를 관측 결과가 나오기 전에 저장하고 같은 표본에서 비교합니다. 비교 성과와 표본이 적용 조건을 충족하지 못하면 균등 가중치를 사용합니다.</span>
+          <span class="en"><b>Weighting conditions:</b> the service saves adaptive and equal-weight forecasts before observations arrive and compares them on the same sample. It uses equal weights when performance or sample requirements are not met.</span>
         </p>
         <p class="stack">TypeScript · Next.js 16 · React 19 · PostgreSQL · GitHub Actions · Vercel</p>
       </div>
@@ -428,7 +428,7 @@ footer {
     <div class="row entry">
       <div class="spine">
         <p class="meta">
-          <span class="sep">2026.03 — 08</span><br>
+          <span class="sep">2026.03 ~ 08</span><br>
           <span class="ko">개인 프로젝트</span><span class="en">solo project</span>
         </p>
       </div>
@@ -442,8 +442,8 @@ footer {
           <span class="en">Paper trading for Korean and US equities: dual-currency portfolios, FX, cost basis, and S&amp;P 500 / KOSPI benchmarks.</span>
         </p>
         <p class="hard">
-          <span class="ko"><b>어려웠던 지점 —</b> 첫 커밋은 인증도 없이 <code>User.id == 1</code>이 하드코딩된 단일 사용자 앱이었습니다. JWT와 소유권 검증으로 재설계한 뒤, 배포된 서비스를 상대로 제가 직접 보안 감사를 돌려 findings를 문서로 남기고 상위 항목을 고쳤습니다.</span>
-          <span class="en"><b>The hard part —</b> the first commit was a single-user app with <code>User.id == 1</code> hardcoded and no auth at all. After rebuilding it around JWT and ownership checks, I ran my own security audit against the deployed service, wrote up the findings, and fixed the top ones.</span>
+          <span class="ko"><b>인증과 보안 점검:</b> 처음에는 <code>User.id == 1</code>을 고정한 단일 사용자 앱이었습니다. JWT와 소유권 검증을 추가하고, 배포된 서비스를 직접 점검해 발견한 문제와 수정 내용을 기록했습니다.</span>
+          <span class="en"><b>Authentication and review:</b> the initial app used a hardcoded <code>User.id == 1</code>. I added JWT authentication and ownership checks, then reviewed the deployed service and documented findings and fixes.</span>
         </p>
         <p class="stack">FastAPI · PostgreSQL · React · Render · Vercel · GitHub Actions</p>
       </div>
@@ -457,7 +457,7 @@ footer {
       <div class="spine">
         <h2 class="label"><span class="ko">팀에서</span><span class="en">On a team</span></h2>
         <p class="meta">
-          <span class="sep">2026.05 — 06</span><br>
+          <span class="sep">2026.05 ~ 06</span><br>
           <span class="ko">5인 팀 · 팀장</span><span class="en">team of 5 · lead</span>
         </p>
       </div>
@@ -468,8 +468,8 @@ footer {
           <span class="en">A service for tracking infant food-allergy trials, built as a bootcamp team project. I set up the team's backend foundation and owned the auth/account and notification systems.</span>
         </p>
         <p class="hard">
-          <span class="ko"><b>맡은 것 —</b> JWT 세션, Google·Kakao·Naver 소셜 로그인과 다중 제공자 계정 통합, 로그인 rate limit, 접속 기기 관리, APScheduler + FCM 웹푸시(중복 방지 키 포함). repo 게이트키퍼로 팀원 PR 41건을 리뷰·머지했습니다.</span>
-          <span class="en"><b>What I owned —</b> JWT sessions, Google/Kakao/Naver login with multi-provider account linking, login rate limiting, device management, and APScheduler + FCM web push with de-duplication keys. As repo gatekeeper I reviewed and merged 41 teammate PRs.</span>
+          <span class="ko"><b>담당 기능:</b> JWT와 소셜 로그인 계정 통합, 로그인 횟수 제한, 접속 기기 관리, 알림 스케줄러와 FCM 웹푸시를 구현했습니다. 식단 생성에서는 후보 필터와 출력 검증을 보강하고, 답이 정해진 입력의 AI 호출을 제거했습니다.</span>
+          <span class="en"><b>My work:</b> JWT and social account linking, login rate limits, device management, scheduled notifications, and FCM web push. I also extended candidate filtering and output checks in meal-plan generation and removed model calls for deterministic inputs.</span>
         </p>
         <p class="stack">FastAPI · PostgreSQL · Azure OpenAI · React · APScheduler · FCM · Azure VM · docker-compose · nginx</p>
       </div>
@@ -486,19 +486,19 @@ footer {
       <div class="minor">
         <div>
           <h4>glass-table <a class="out" href="https://github.com/mhju0/glass-table">GitHub ↗</a></h4>
-          <p><span class="ko">레인지와 EV로 생각하는 법을 가르치는 한국어 우선 홀덤 학습 iOS 앱. 순수 Swift 포커 엔진을 파이썬 오라클과 교차검증하는 release-config CI 게이트로 정확성을 증명했고, 서드파티 의존성은 0입니다.</span><span class="en">Korean-first Hold'em trainer for iOS. A pure-Swift poker engine proves its correctness by cross-checking against a Python oracle in a release-mode CI gate. Zero third-party dependencies.</span></p>
+          <p><span class="ko">상대의 패 범위와 기댓값을 연습하는 한국어 홀덤 학습 iOS 앱입니다. Swift 계산 엔진의 결과를 Python 참조 구현과 CI에서 교차검증합니다.</span><span class="en">A Korean Hold'em trainer for iOS. I separated the calculation engine into a Swift package and cross-check its results against a Python reference in CI.</span></p>
         </div>
         <div>
           <h4>allergy-tracker <a class="out" href="https://github.com/mhju0/allergy-tracker">GitHub ↗</a></h4>
-          <p><span class="ko">팀 프로젝트의 도메인을 혼자 iOS 앱으로 재설계. 음식 상태를 저장하지 않고 트라이얼 이력에서 매번 파생시키기 때문에, 몇 주 뒤 지연 반응을 기록해도 캐시 무효화 없이 상태가 뒤집힙니다.</span><span class="en">The same allergy domain rebuilt alone as an iOS app. Food status is never stored — it's derived from trial history on every read, so a delayed reaction logged weeks later flips a "safe" food back with no cache to invalidate.</span></p>
+          <p><span class="ko">팀 프로젝트에서 다뤘던 알레르기 기록을 개인 iOS 앱으로 다시 설계했습니다. 음식 상태는 시도 이력에서 계산하므로 뒤늦게 반응을 기록해도 다음 조회에 반영됩니다.</span><span class="en">I rebuilt the allergy-recording domain as a solo iOS app. Food status is calculated from trial history, so a reaction recorded later is reflected on the next read.</span></p>
         </div>
         <div>
           <h4>bill-judge <a class="out" href="https://github.com/mhju0/bill-judge">GitHub ↗</a></h4>
-          <p><span class="ko">술자리 정산을 "계산"이 아니라 "납득 가능한 판결"로 바꾼 로컬 퍼스트 웹앱. BigInt 최대잉여법으로 "참가자 금액의 합 = 결제액" 불변식을 코드로 강제합니다. 서버·계정·외부 API 0.</span><span class="en">A local-first web app that turns splitting a bill into a verdict people accept rather than a number they're handed. A BigInt largest-remainder method enforces "sum of shares = amount paid" as a code-level invariant. No server, no accounts, no external APIs.</span></p>
+          <p><span class="ko">음식값과 술값을 나누고 참가자별 소비량에 따라 정산하는 웹앱입니다. BigInt 최대잉여법으로 나머지 금액까지 배분해 참가자별 금액의 합을 결제액에 맞춥니다.</span><span class="en">A web app that splits food and alcohol costs using consumption weights. BigInt largest-remainder allocation keeps the participant shares equal to the bill, including the remainder.</span></p>
         </div>
         <div>
           <h4>ssak</h4>
-          <p><span class="ko">현실 시간으로 꽃을 키우는 iOS 게임. 3주 만들고 출시 없이 접었습니다. 테스트는 전부 통과했는데 게임이 재미가 없었고, 그 판단을 조용히 지우는 대신 회고로 공개했습니다.</span><span class="en">A quiet iOS game about growing flowers in real time. Built in three weeks, then shut down without shipping — every test passed and the game still wasn't fun. I published the retrospective rather than quietly deleting it.</span></p>
+          <p><span class="ko">실제 시간에 따라 꽃이 자라는 iOS 게임입니다. AI 에이전트로 개발하는 과정을 실험했고, 출시 없이 작업을 종료하면서 코드와 회고를 남겼습니다.</span><span class="en">An iOS game about growing flowers in real time. I used it to try an AI-agent development workflow, then ended the project without releasing it and kept the code and retrospective.</span></p>
         </div>
       </div>
     </div>
@@ -545,8 +545,8 @@ footer {
       </div>
       <div class="col">
         <p>
-          <span class="ko">위에 쓴 수치는 전부 저장소에서 직접 잰 값입니다. 그래서 아직 재지 않은 것도 적어둡니다 — 물어보시면 "설계로 통제했고 수치는 아직 안 쟀습니다"가 정확한 답입니다.</span>
-          <span class="en">Every figure above was measured directly in the repository. So here is what I haven't measured — if you ask about these, the accurate answer is that I controlled for them by design and haven't put a number on them yet.</span>
+          <span class="ko">아래 항목은 아직 측정하지 않았습니다. 관련 구현과 설계는 설명할 수 있지만 개선률이나 처리량을 성과로 제시하지 않습니다.</span>
+          <span class="en">I have not measured the items below. I can discuss the implementation, but I do not claim an improvement rate or throughput result.</span>
         </p>
         <ul>
           <li><span class="ko">LLM 호출 비용과 토큰 사용량</span><span class="en">LLM call cost and token usage</span></li>
@@ -578,7 +578,7 @@ footer {
 
   <footer>
     <span>© 2026 <span class="ko">주민현 · 서울</span><span class="en">Min Hyun Ju · Seoul</span></span>
-    <span><span class="ko">최종 갱신</span><span class="en">last updated</span> 2026-08-30</span>
+    <span><span class="ko">최종 갱신</span><span class="en">last updated</span> 2026-09-07</span>
   </footer>
 
 </div>
