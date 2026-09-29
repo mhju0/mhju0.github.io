@@ -7,6 +7,11 @@
   --portfolio-education-top: 40px;
   --portfolio-education-bottom: 40px;
 }
+.site-nav {
+  height: auto;
+  min-height: 0;
+  padding-bottom: 8px;
+}
 html:lang(ko) :is(h1, h2, h3, p, li, figcaption, a) {
   word-break: keep-all;
   overflow-wrap: break-word;
