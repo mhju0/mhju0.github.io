@@ -1,0 +1,128 @@
+/* Review copy: consistent text rhythm across Korean and English. */
+:root {
+  --portfolio-project-padding: 40px;
+  --portfolio-row-gap: 12px;
+  --portfolio-number-gap: 16px;
+  --portfolio-title-gutter: 48px;
+  --portfolio-education-top: 40px;
+  --portfolio-education-bottom: 40px;
+}
+html:lang(ko) :is(h1, h2, h3, p, li, figcaption, a) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+html:lang(en) :is(h1, h2, h3, p, li, figcaption, a) {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+:is(h1, h2, h3) { text-wrap: balance; }
+:is(p, li, figcaption) { text-wrap: pretty; }
+.screen-gallery figcaption .caption-description,
+.screen-gallery figcaption .caption-note {
+  display: block;
+  text-align: center;
+}
+.contribution-list {
+  margin: 0;
+  padding-left: 1.3em;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.contribution-list li + li { margin-top: 12px; }
+html:lang(en) .combined-intro h1 { max-width: 100%; }
+
+.text-project {
+  grid-template-columns: max-content minmax(0, .75fr) minmax(0, 1.25fr);
+  column-gap: 0;
+  row-gap: 0;
+  padding-top: var(--portfolio-project-padding);
+  padding-bottom: var(--portfolio-project-padding);
+  align-items: start;
+}
+.text-project > .number {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  width: auto;
+  padding-right: var(--portfolio-number-gap);
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  align-self: first baseline;
+}
+.text-project > .project-title {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  padding-right: var(--portfolio-title-gutter);
+  align-self: first baseline;
+}
+.text-project .project-title h3 { line-height: 1.2; }
+.text-project > .description {
+  grid-column: 3;
+  grid-row: 1;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  align-self: first baseline;
+}
+.text-project > .project-status {
+  grid-column: 2;
+  grid-row: 2;
+  margin: var(--portfolio-row-gap) 0 0;
+  align-self: last baseline;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.text-project > .read {
+  grid-column: 3;
+  grid-row: 2;
+  margin: var(--portfolio-row-gap) 0 0;
+  align-self: last baseline;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.text-project > .project-status:empty { display: none; }
+.background { padding-top: var(--portfolio-education-top); padding-bottom: var(--portfolio-education-bottom); }
+@media (max-width: 600px) {
+  :root {
+    --portfolio-project-padding: 32px;
+    --portfolio-education-top: 44px;
+    --portfolio-education-bottom: 60px;
+  }
+  .text-project {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 0;
+    padding-top: var(--portfolio-project-padding);
+    padding-bottom: var(--portfolio-project-padding);
+  }
+  .text-project > .number {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-bottom: var(--portfolio-row-gap);
+    padding-right: 0;
+    justify-self: start;
+    align-self: start;
+  }
+  .text-project > .project-title {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-right: 0;
+    align-self: start;
+  }
+  .text-project > .description {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: var(--portfolio-row-gap);
+    align-self: start;
+  }
+  .text-project > .project-status {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .text-project > .read {
+    grid-column: 2;
+    grid-row: 4;
+    justify-self: end;
+  }
+}
