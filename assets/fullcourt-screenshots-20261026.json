@@ -1,0 +1,37 @@
+{
+  "captureDateKst": "2026-10-26",
+  "release": "v1.3.1",
+  "note": "Unedited public-site Chromium captures. Games intentionally shows historical 2024-12-02 matchups with team records; Shooting shows 2026-27 season-to-date results through October 25. These are screenshots, not current data or physical-device verification.",
+  "screenshots": [
+    {
+      "file": "fullcourt-games-20261026.png",
+      "sha256": "08711f4ebfa77ef93519914c29bba2afc51aee1df55e52ae00db438fcbc88d98",
+      "source": "https://fullcourt.fyi",
+      "route": "/games?season=2024-25&date=2024-12-02",
+      "url": "https://fullcourt.fyi/games?season=2024-25&date=2024-12-02",
+      "deploymentSha": "09b7ce584ff6c3d15300934ffe626ff7278ed919",
+      "deploymentId": "dpl_36jqcnouPTxvX3bzxGeSSfGSddGL",
+      "width": 1280,
+      "height": 1153,
+      "capturedAt": "2026-10-26T10:41:08.247Z",
+      "browser": "Chromium",
+      "physicalDevice": false,
+      "pageScrollWidth": 1280
+    },
+    {
+      "file": "fullcourt-shooting-mobile-20261026.png",
+      "sha256": "236b9e3bb2717b2a550c906fc143c8ac28925195f51d33aa35bfca78143e229f",
+      "source": "https://fullcourt.fyi",
+      "route": "/shooting",
+      "url": "https://fullcourt.fyi/shooting",
+      "deploymentSha": "09b7ce584ff6c3d15300934ffe626ff7278ed919",
+      "deploymentId": "dpl_36jqcnouPTxvX3bzxGeSSfGSddGL",
+      "width": 402,
+      "height": 874,
+      "capturedAt": "2026-10-26T10:41:09.386Z",
+      "browser": "Chromium",
+      "physicalDevice": false,
+      "pageScrollWidth": 402
+    }
+  ]
+}
