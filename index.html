@@ -99,15 +99,15 @@ footer{justify-content:flex-start}.footer-links{display:flex;flex-wrap:wrap;gap:
 @media(max-width:850px){.text-project{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);column-gap:32px}}
 @media(max-width:600px){.text-project{grid-template-columns:minmax(0,1fr) auto;row-gap:12px}.text-project>.number{grid-column:1/-1;grid-row:1}.text-project>.project-title{grid-column:1/-1;grid-row:2}.text-project>.description{grid-column:1/-1;grid-row:3}.text-project>.project-status{grid-column:1;grid-row:4}.text-project>.read{grid-column:2;grid-row:4;margin:0;justify-self:end}}
 </style>
-<link rel="stylesheet" href="assets/fonts/fonts.css"><style>body{font-family:'Lato','Nanum Gothic',sans-serif;font-synthesis:none}.combined-intro h1,.detail-head h1{font-weight:400}.text-project h3{font-weight:700}</style>
+<link rel="stylesheet" href="assets/fonts/fonts.css"><style>body{font-family:'Lato','Nanum Gothic',sans-serif;font-synthesis:none}.combined-intro h1,.detail-head h1{font-weight:400}.text-project h3{font-weight:700}.combined-intro h1{max-width:none}html[lang=en] .combined-intro h1{font-size:clamp(28px,3.4vw,46px)}</style>
 <meta property="og:title" content="주민현 · 포트폴리오">
-<meta property="og:description" content="궁금한 게 생기면 직접 만들어 봅니다">
+<meta property="og:description" content="AI·데이터 서비스를 만드는 개발자">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mhju0.github.io/ko/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="주민현 · 포트폴리오">
-<meta name="twitter:description" content="궁금한 게 생기면 직접 만들어 봅니다">
-<meta name="description" content="궁금한 게 생기면 직접 만들어 봅니다"><link rel="canonical" href="https://mhju0.github.io/ko/"><link rel="alternate" hreflang="ko" href="https://mhju0.github.io/ko/"><link rel="alternate" hreflang="en" href="https://mhju0.github.io/en/"><link rel="stylesheet" href="recommended.css"></head>
+<meta name="twitter:description" content="AI·데이터 서비스를 만드는 개발자">
+<meta name="description" content="AI·데이터 서비스를 만드는 개발자"><link rel="canonical" href="https://mhju0.github.io/ko/"><link rel="alternate" hreflang="ko" href="https://mhju0.github.io/ko/"><link rel="alternate" hreflang="en" href="https://mhju0.github.io/en/"><link rel="stylesheet" href="recommended.css"></head>
 <body><a class="skip" href="#main">본문으로 이동</a>
 
 <div id="stage"></div><noscript>이 포트폴리오는 JavaScript가 필요합니다. 브라우저에서 JavaScript를 허용한 뒤 다시 열어 주세요.</noscript>
@@ -181,7 +181,7 @@ function conciseDetail(p){
 }
 function detail(p){if(conciseDetails[p.id])return conciseDetail(p);if(p.id==='mammacare')return mammacareDetail(p);if(p.id==='glass-table')return glassDetail(p);const related=data.find(x=>x.id===p.related)||data[(data.indexOf(p)+1)%data.length];return `<main id="main" class="detail"><a class="back" href="#projects">${t('프로젝트 목록으로','Back to projects')}</a><div class="detail-head"><p class="eyebrow">${pick(p.type)}</p><h1>${name(p)}</h1><p class="promise">${pick(p.promise)}</p><p class="description">${pick(p.desc)}</p>${projectLinks(p)}</div><div class="case-body"><p class="stack">${p.stack.split(' · ').map(item=>`<span class="stack-item">${escapeHtml(item)}</span>`).join('')}</p><section class="chapter"><h2>${pick(caseQuestions[p.id][0])}</h2><p>${pick(p.problem)}</p></section>${gallery(p)}${['role','decision','evidence'].map((key,i)=>`<section class="chapter"><h2>${pick(caseQuestions[p.id][i+1])}</h2><p>${pick(p[key])}</p>${key==='decision'?decisionVisual(p):''}</section>`).join('')}<a class="next" href="#project/${related.id}"><span>${t(p.related?'연결된 프로젝트':'다음 프로젝트',p.related?'Related project':'Next project')}</span><strong>${name(related)}</strong></a></div></main>`}
 
-function introduction(){return `<section id="about" class="hero combined-intro"><h1>${t('AI와 데이터를 연결하는 백엔드 개발','Backend development with AI and data')}</h1><p class="hero-support">${t('궁금한 게 생기면 직접 만들어 봅니다','I build things I’m curious about')}</p></section>`}
+function introduction(){return `<section id="about" class="hero combined-intro"><h1>${t('AI·데이터 서비스를 만드는 개발자','Software developer making AI and data products')}</h1><p class="hero-support">${t('호기심을 구현하다','Curiosity, built')}</p></section>`}
 function qualifications(){return `<section id="background" class="background"><div class="qualification-groups"><section><h2>${t('교육','Education')}</h2><div>${t('Microsoft AI 소프트웨어 아카데미 3기','Microsoft AI Software Academy, Cohort 3')}<br>The University of Texas at Austin</div></section><section><h2>${t('자격증','Certifications')}</h2><div>Microsoft Azure AI Fundamentals (AI-900)<br>SQLD</div></section></div></section>`}
 
 function render(mode){document.documentElement.lang=language?'en':'ko';const p=route();return `<div class="shell ${mode}">${nav()}${p?detail(p):`<main id="main">${introduction()}<section id="projects"><div class="sectionline"><h2>${t('프로젝트','Projects')}</h2></div>${data.map(row).join('')}</section>${qualifications()}</main>`}${footer()}</div>`}
