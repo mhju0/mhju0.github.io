@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Filing Agent · 주민현</title>
+<meta name="description" content="공시 숫자를 묻고 비교하면 근거와 함께 답하는 앱">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Filing Agent · 주민현">
+<meta property="og:description" content="공시 숫자를 묻고 비교하면 근거와 함께 답하는 앱">
+<meta property="og:url" content="https://mhju0.github.io/ko/p/filing-agent.html">
+<meta property="og:image" content="https://mhju0.github.io/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;d.classList.add('js')})()</script>
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<div class="shell">
+<header class="nav">
+<a class="me" href="../index.html">주민현</a>
+<nav aria-label="주 메뉴">
+<a href="../index.html#projects">프로젝트</a>
+<a class="lg" href="../../en/p/filing-agent.html" lang="en" hreflang="en" aria-label="Read in English">EN</a>
+<button class="tg" type="button" aria-label="밝은 모드와 어두운 모드 전환"><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="cta" href="../index.html#contact">연락처</a>
+</nav>
+</header>
+<main id="main">
+<a class="crumb" href="../index.html#projects">← 프로젝트</a>
+<div class="dh">
+<p class="kind">웹 · AI · 개인 프로젝트 · 2026.09–2026.11</p>
+<h1>Filing Agent</h1>
+<p class="intro">정해 둔 과거 기업 공시의 숫자를 질문하고 비교하는 로컬 앱입니다. AI는 질문의 뜻을 파악하고, 프로그램 코드가 자료 선택과 계산, 답변 작성을 맡도록 나눴습니다.</p>
+<ul class="chips"><li>Python</li><li>FastAPI</li><li>LangGraph</li><li>PostgreSQL</li><li>React</li></ul>
+<div class="btns"><a class="btn p" href="https://filing-agent.vercel.app/" target="_blank" rel="noreferrer">데모 보기</a><a class="btn" href="https://github.com/mhju0/filing-agent" target="_blank" rel="noreferrer">코드</a></div>
+</div>
+<ul class="facts three"><li><b>120회</b> <span class="nb">한·영</span> 시나리오 실행 통과</li><li><b>2.96초</b> 응답 시간 중앙값 · M1 Pro</li><li><b>15개</b> 검증한 공시 수치</li></ul>
+<section class="sec" aria-label="동작 흐름">
+<div class="hf"><div class="n">질문<small>후속 질문 포함</small></div><i class="l"></i><div class="n">의도 해석<small>로컬 Gemma</small></div><i class="l"></i><div class="n">근거 · 계산<small>코드 · Decimal</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL</small></div></div>
+<ol class="walk"><li><b>질문</b><p>요청마다 request_id를 받아 같은 요청이 두 번 와도 한 번만 처리합니다. 실패한 질문은 한 번만 다시 시도할 수 있습니다.</p></li><li><b>의도 해석</b><p>로컬 Gemma는 질문이 무엇을 묻는지만 정해진 형식으로 돌려줍니다. 모르는 회사나 정해지지 않은 값이 섞인 응답은 파서가 거부하고, 모델은 수치를 보지 않습니다.</p></li><li><b>근거 · 계산</b><p>어느 공시 수치를 쓸지와 계산은 코드가 맡습니다. 금액은 Decimal로 계산해 소수 둘째 자리에서 반올림하고, 근거의 출처는 DART와 SEC 두 곳으로 제한했습니다.</p></li><li><b>저장</b><p>LangGraph의 상태를 PostgreSQL 체크포인트에 저장해 후속 질문이 앞 질문을 이어받습니다. 조사 문서는 행 잠금을 걸고 갱신합니다.</p></li></ol>
+</section>
+<section class="sec"><h2>모델이 계산까지 맡아야 할까?</h2><p>모델 실험에서는 근거를 맞게 골라도 <span class="nb">증가·감소</span> 설명이 틀렸습니다. 모델에는 질문 의도 해석만 맡기고, 근거 <span class="nb">선택·Decimal</span> <span class="nb">계산·한영</span> 금융 답변은 코드가 결정하도록 했습니다.</p></section>
+<div class="shots one"><figure><img src="../../assets/agent-ko-20261001b.png" alt="녹화된 조사 · 연간 매출 비교와 원문 근거" loading="lazy" decoding="async"><figcaption>녹화된 조사 · 연간 매출 비교와 원문 근거</figcaption></figure></div>
+<p class="scope">공개 데모는 저장된 실행 기록을 재생하는 화면이며 새 질문은 받지 않습니다. AI 에이전트와 함께 만들었습니다. 저는 계획을 세우고 결과를 검토했으며, 평가 시나리오는 에이전트가 작성했습니다.</p>
+<nav class="pager" aria-label="다른 프로젝트"><a href="glass-table.html">← Glass Table</a><a href="fullcourt.html">FullCourt →</a></nav>
+</main>
+</div>
+<script src="../../site.js"></script>
+</body>
+</html>

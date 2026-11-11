@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>무한초성 · 주민현</title>
+<meta name="description" content="초성 두 개에 맞는 두 글자 명사를 60초 동안 찾는 단어 게임">
+<meta property="og:type" content="website">
+<meta property="og:title" content="무한초성 · 주민현">
+<meta property="og:description" content="초성 두 개에 맞는 두 글자 명사를 60초 동안 찾는 단어 게임">
+<meta property="og:url" content="https://mhju0.github.io/ko/p/letter-game.html">
+<meta property="og:image" content="https://mhju0.github.io/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t;d.classList.add('js')})()</script>
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<div class="shell">
+<header class="nav">
+<a class="me" href="../index.html">주민현</a>
+<nav aria-label="주 메뉴">
+<a href="../index.html#projects">프로젝트</a>
+<a class="lg" href="../../en/p/letter-game.html" lang="en" hreflang="en" aria-label="Read in English">EN</a>
+<button class="tg" type="button" aria-label="밝은 모드와 어두운 모드 전환"><svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="cta" href="../index.html#contact">연락처</a>
+</nav>
+</header>
+<main id="main">
+<a class="crumb" href="../index.html#projects">← 프로젝트</a>
+<div class="dh">
+<p class="kind">iPhone 앱 · 서버 · 개인 프로젝트<span class="st">TestFlight 베타</span></p>
+<h1>무한초성</h1>
+<p class="intro">초성 두 개가 주어지고, 60초 동안 그 초성에 맞는 두 글자 명사를 입력하는 iPhone 단어 게임입니다. 한 판이 끝나면 입력한 단어와 놓친 단어를 확인하고 바로 다음 판을 시작합니다. 인터넷이 없어도 할 수 있습니다.</p>
+<ul class="chips"><li>Swift · SwiftUI</li><li>Java 21</li><li>Spring Boot</li><li>PostgreSQL</li><li>Docker</li></ul>
+<div class="btns"></div>
+</div>
+<ul class="facts three"><li><b>54,349</b> 뜻풀이를 갖춘 단어</li><li><b>V1–V4</b> Flyway 스키마 버전</li><li><b>60초</b> 한 판</li></ul>
+<section class="sec" aria-label="동작 흐름">
+<div class="hf"><div class="n">한 판<small>60초 · 오프라인</small></div><i class="l"></i><div class="n">대기열<small>기기에 저장</small></div><i class="l"></i><div class="n">제출<small>SHA-256 키</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL · Flyway</small></div></div>
+<ol class="walk"><li><b>한 판</b><p>단어 목록을 앱에 넣어 인터넷 없이도 한 판을 할 수 있습니다. 게임 규칙은 별도 Swift 패키지로 분리해 시뮬레이터 없이 테스트합니다.</p></li><li><b>대기열</b><p>보내지 못한 결과는 저장 파일에 쌓아 두었다가 연결되면 보냅니다.</p></li><li><b>제출</b><p>서버는 결과 내용으로 SHA-256 키를 만듭니다. 같은 내용이 다시 오면 그대로 받고, 같은 판에 다른 내용이 오면 409로 거부합니다.</p></li><li><b>저장</b><p>Spring Boot 4와 Java 21 서버가 PostgreSQL에 저장하고 스키마는 Flyway로 관리합니다. 요청은 클라이언트별 토큰 버킷으로 제한합니다.</p></li></ol>
+</section>
+
+<div class="shots phones"><figure><img src="../../assets/card-letter-home-20261105.webp" alt="홈 화면" loading="lazy" decoding="async"><figcaption>홈 화면</figcaption></figure><figure><img src="../../assets/card-letter-result-20261105.webp" alt="연습 결과 화면" loading="lazy" decoding="async"><figcaption>연습 결과 화면</figcaption></figure></div>
+<p class="scope">TestFlight 베타이며 App Store에는 아직 출시하지 않았습니다.</p>
+<nav class="pager" aria-label="다른 프로젝트"><a href="allergy-tracker.html">← Allergy Tracker</a><a href="glass-table.html">Glass Table →</a></nav>
+</main>
+</div>
+<script src="../../site.js"></script>
+</body>
+</html>
