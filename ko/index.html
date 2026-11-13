@@ -31,44 +31,67 @@
 <main id="main">
 <section>
 <h1>인공지능<span class="mid-dot">·</span>데이터 서비스를 만드는 개발자</h1>
-<p class="tag">호기심을 구현하다</p>
+<p class="tag"><span class="nb">Python</span> · <span class="nb">FastAPI</span> · <span class="nb">PostgreSQL</span> · <span class="nb">TypeScript</span> · <span class="nb">LLM 응답 검증</span></p>
 </section>
 <section id="projects" aria-label="프로젝트">
 <article class="card">
+<div class="ct">
+<div class="cx">
 <p class="kind">웹 · AI · 개인 프로젝트 · 2026.09–2026.11</p>
 <h2><a href="p/filing-agent.html">Filing Agent</a></h2>
 <p class="pd">공시 숫자를 묻고 비교하면 근거와 함께 답하는 앱</p>
-<div class="hf"><div class="n">질문<small>후속 질문 포함</small></div><i class="l"></i><div class="n">의도 해석<small>로컬 Gemma</small></div><i class="l"></i><div class="n">근거 · 계산<small>코드 · Decimal</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL</small></div></div>
-<ul class="facts"><li>모델은 <b>질문 해석만</b>, 수치 선택과 계산은 코드</li><li>LangGraph 3단계와 PostgreSQL 체크포인트</li><li>같은 요청은 request_id로 <b>한 번만 처리</b></li><li><span class="nb">한·영</span> 시나리오 <b>120회</b> 실행 통과 · 응답 중앙값 2.96초</li></ul>
+<p class="stk"><span>Python ·</span> <span>FastAPI ·</span> <span>LangGraph ·</span> <span>PostgreSQL ·</span> <span>React</span></p>
+<ul class="nums"><li><b>120회</b><span><span class="nb">한·영</span> 시나리오 실행 통과</span></li><li><b>2.96초</b><span>응답 시간 중앙값<small>M1 Pro</small></span></li><li><b>15개</b><span>검증한 공시 수치</span></li></ul>
 <div class="acts"><a class="btn s" href="p/filing-agent.html" aria-label="Filing Agent · 자세히 보기">자세히 보기 →</a><a class="btn s" href="https://filing-agent.vercel.app/" target="_blank" rel="noreferrer">데모 보기<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/filing-agent" target="_blank" rel="noreferrer">코드<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
+</div>
+<a class="th" href="p/filing-agent.html" tabindex="-1"><img src="../assets/thumb-agent-ko-20261113.webp" alt="녹화된 조사 · 연간 매출 비교와 원문 근거"></a>
+</div>
+<div class="hf"><div class="n">질문<small>후속 질문 포함</small></div><i class="l"></i><div class="n">의도 해석<small>로컬 Gemma</small></div><i class="l"></i><div class="n">근거 · 계산<small>코드 · Decimal</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL</small></div></div>
 </article>
 <article class="card">
-<p class="kind">웹 · 데이터 · 개인 프로젝트<span class="st"><span class="dot"></span>운영 중</span></p>
+<div class="ct">
+<div class="cx">
+<p class="kind">iPhone 앱 · AI · 개인 프로젝트 · 2026.07–2026.11<span class="st"><span class="dot off"></span>데모</span></p>
+<h2><a href="p/filing-digest.html">Filing Digest</a></h2>
+<p class="pd">공시 숫자를 원문 근거와 함께 읽는 앱</p>
+<p class="stk"><span>Python ·</span> <span>FastAPI ·</span> <span>PostgreSQL · pgvector ·</span> <span>SwiftUI</span></p>
+<ul class="nums"><li><b>24/24</b><span>기준 질문 통과<small>3개 기업</small></span></li><li><b>18개</b><span>기업<small>연간 공시 23건</small></span></li><li><b>519</b><span>오프라인 테스트 통과</span></li></ul>
+<div class="acts"><a class="btn s" href="p/filing-digest.html" aria-label="Filing Digest · 자세히 보기">자세히 보기 →</a><a class="btn s" href="https://mhju0.github.io/filing-digest/" target="_blank" rel="noreferrer">데모 보기<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/filing-digest" target="_blank" rel="noreferrer">코드<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
+</div>
+<a class="th" href="p/filing-digest.html" tabindex="-1"><img src="../assets/thumb-digest-ko-20261113.webp" alt="삼성전자 · 요약 화면"></a>
+</div>
+<div class="hf"><div class="n">공시 수집<small>DART · SEC</small></div><i class="l"></i><div class="n">검색<small>pgvector · HNSW</small></div><i class="l"></i><div class="n">설명 생성<small>Gemini · JSON 스키마</small></div><i class="l"></i><div class="n">검사<small>인용 · 수치</small></div></div>
+</article>
+<article class="card">
+<div class="ct">
+<div class="cx">
+<p class="kind">웹 · 데이터 · 개인 프로젝트 · 2026.03–2026.11<span class="st"><span class="dot"></span>운영 중</span></p>
 <h2><a href="p/fullcourt.html">FullCourt</a></h2>
 <p class="pd">NBA 팀의 휴식일과 이동 거리를 비교하는 사이트</p>
-<div class="hf"><div class="n">일정 수집<small>매일 자동 실행</small></div><i class="l"></i><div class="n">휴식 · 이동 계산<small>TypeScript</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL · 행 잠금</small></div><i class="l"></i><div class="n">화면<small>Next.js · CDN 캐시</small></div></div>
-<ul class="facts"><li>경기 갱신은 트랜잭션과 <b>행 잠금</b>으로 처리</li><li>빠진 연장전 기록 <b>783건</b>을 1차 출처로 보완</li><li>잠금 순서를 경기 ID로 고정해 교착 상태 방지</li><li>CI에서 <b>실제 PostgreSQL</b>로 트랜잭션 테스트</li></ul>
+<p class="stk"><span>TypeScript ·</span> <span>Next.js ·</span> <span>PostgreSQL ·</span> <span>Drizzle ORM ·</span> <span>Python · scikit-learn</span></p>
+<ul class="nums"><li><b>783건</b><span>1차 출처로 보완한 연장전 기록</span></li><li><b>346건</b><span>NBA 박스스코어로 추가 수정한 연장전 기록</span></li><li><b>51,695</b><span>저장된 경기<small>예정 일정 포함</small></span></li></ul>
 <div class="acts"><a class="btn s" href="p/fullcourt.html" aria-label="FullCourt · 자세히 보기">자세히 보기 →</a><a class="btn s" href="https://fullcourt.fyi/" target="_blank" rel="noreferrer">사이트 열기<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/fullcourt" target="_blank" rel="noreferrer">코드<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
+</div>
+<a class="th" href="p/fullcourt.html" tabindex="-1"><img src="../assets/thumb-fullcourt-20261113.webp" alt="2024년 12월 2일 경기 · 팀 전적과 휴식·이동 부담 비교"></a>
+</div>
+<div class="hf"><div class="n">일정 수집<small>매일 자동 실행</small></div><i class="l"></i><div class="n">휴식 · 이동 계산<small>TypeScript</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL · 행 잠금</small></div><i class="l"></i><div class="n">화면<small>Next.js · CDN 캐시</small></div></div>
 </article>
 <article class="card">
-<p class="kind">웹 · AI · 5인 팀장 · 2026.05–2026.06<span class="st">우수상(2위)</span></p>
+<div class="ct">
+<div class="cx">
+<p class="kind">웹 · AI · 팀 프로젝트 · 2026.05–2026.06</p>
 <h2><a href="p/mammacare.html">Mammacare</a></h2>
 <p class="pd">아기 알레르기 기록과 AI 이유식 식단 앱</p>
-<div class="hf"><div class="n">아이 정보<small>월령 · 알레르기 기록</small></div><i class="l"></i><div class="n">후보 선정<small>코드</small></div><i class="l"></i><div class="n">식단 생성<small>Azure OpenAI · JSON</small></div><i class="l"></i><div class="n">결과 보정<small>코드</small></div></div>
-<ul class="facts"><li>5인 팀 팀장 · 코드 검토와 병합</li><li><b>확정 알레르기 재료</b>는 모델 호출 전에 후보에서 제외</li><li>JWT 인증과 <span class="nb">Google·Kakao·Naver</span> 로그인</li><li>식사 알림에 <b>중복 방지 키</b> 적용</li></ul>
+<p class="stk"><span>FastAPI ·</span> <span>PostgreSQL ·</span> <span>Azure OpenAI ·</span> <span>React ·</span> <span>FCM</span></p>
+<ul class="nums two"><li><b>우수상</b><span>아카데미 최종 발표 2위</span></li><li><b>5인 팀</b><span>팀장<small>코드 검토와 병합</small></span></li></ul>
 <div class="acts"><a class="btn s" href="p/mammacare.html" aria-label="Mammacare · 자세히 보기">자세히 보기 →</a></div>
+</div>
+<a class="th" href="p/mammacare.html" tabindex="-1"><img src="../assets/thumb-mamma-20261113.webp" alt="AI 식단 미리보기"></a>
+</div>
+<div class="hf"><div class="n">아이 정보<small>월령 · 알레르기 기록</small></div><i class="l"></i><div class="n">후보 선정<small>코드</small></div><i class="l"></i><div class="n">식단 생성<small>Azure OpenAI · JSON</small></div><i class="l"></i><div class="n">결과 보정<small>코드</small></div></div>
 </article>
 
 <div class="rows">
-<details>
-<summary><b>Filing Digest</b><span>Python · FastAPI · pgvector · SwiftUI</span><em class="st">데모</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
-<div class="in">
-<p class="pd">공시 숫자를 원문 근거와 함께 읽는 앱</p>
-<div class="hf"><div class="n">공시 수집<small>DART · SEC</small></div><i class="l"></i><div class="n">검색<small>pgvector · HNSW</small></div><i class="l"></i><div class="n">설명 생성<small>Gemini · JSON 스키마</small></div><i class="l"></i><div class="n">검사<small>인용 · 수치</small></div></div>
-<ul class="facts"><li>검사에 실패하면 <b>설명을 숨기고</b> 저장된 수치는 그대로 표시</li><li>기준 질문 <b>24/24</b> 통과 · 2026.10.03</li></ul>
-<div class="acts"><a class="btn s" href="p/filing-digest.html" aria-label="Filing Digest · 자세히 보기">자세히 보기 →</a><a class="btn s" href="https://mhju0.github.io/filing-digest/" target="_blank" rel="noreferrer">데모 보기<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/filing-digest" target="_blank" rel="noreferrer">코드<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
-</div>
-</details>
 <details>
 <summary><b>오늘비</b><span>TypeScript · Next.js · PostgreSQL</span><em class="st"><span class="dot"></span>운영 중</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
 <div class="in">
@@ -97,7 +120,7 @@
 </div>
 </details>
 <details>
-<summary><b>무한초성</b><span>Spring Boot · PostgreSQL · SwiftUI</span><em class="st">TestFlight 베타</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
+<summary><b>무한초성</b><span>Spring Boot · PostgreSQL · SwiftUI</span><em class="st"><span class="dot off"></span>TestFlight 베타</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
 <div class="in">
 <p class="pd">초성 두 개에 맞는 두 글자 명사를 60초 동안 찾는 단어 게임</p>
 <div class="hf"><div class="n">한 판<small>60초 · 오프라인</small></div><i class="l"></i><div class="n">대기열<small>기기에 저장</small></div><i class="l"></i><div class="n">제출<small>SHA-256 키</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL · Flyway</small></div></div>
@@ -106,7 +129,7 @@
 </div>
 </details>
 <details>
-<summary><b>Glass Table</b><span>Swift · SwiftUI</span><em class="st">TestFlight 베타</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
+<summary><b>Glass Table</b><span>Swift · SwiftUI</span><em class="st"><span class="dot off"></span>TestFlight 베타</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
 <div class="in">
 <p class="pd">포커를 처음 배우는 사람을 위한 연습 앱</p>
 <div class="hf"><div class="n">문제 생성<small>시드 고정</small></div><i class="l"></i><div class="n">승률 계산<small>모든 경우</small></div><i class="l"></i><div class="n">복습 일정<small>FSRS-6</small></div><i class="l"></i><div class="n">저장<small>원자적 쓰기</small></div></div>
@@ -118,8 +141,8 @@
 </div>
 </section>
 <section class="quals" aria-label="교육과 자격증">
-<div><h2>교육</h2>Microsoft AI 소프트웨어 아카데미 3기<br>The University of Texas at Austin</div>
-<div><h2>자격증</h2>Microsoft Azure AI Fundamentals (AI-900)<br>SQLD</div>
+<div><h2>교육</h2><ul><li><span>Microsoft AI 소프트웨어 아카데미 3기</span><time>2025.12–2026.06</time></li><li><span>The University of Texas at Austin</span><time>2015.08–2022.05</time></li></ul></div>
+<div><h2>자격증</h2><ul><li><span>Azure AI Fundamentals (AI-900)</span><time>2026.04</time></li><li><span>SQLD</span><time>2026.03</time></li></ul></div>
 </section>
 <section class="contact" id="contact">
 <h2>연락처</h2>

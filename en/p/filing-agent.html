@@ -37,15 +37,19 @@
 <ul class="chips"><li>Python</li><li>FastAPI</li><li>LangGraph</li><li>PostgreSQL</li><li>React</li></ul>
 <div class="btns"><a class="btn p" href="https://filing-agent.vercel.app/" target="_blank" rel="noreferrer">View demo</a><a class="btn" href="https://github.com/mhju0/filing-agent" target="_blank" rel="noreferrer">Code</a></div>
 </div>
-<ul class="facts three"><li><b>120</b> Korean and English runs passed</li><li><b>2.96 s</b> median response time · M1 Pro</li><li><b>15</b> filing figures verified</li></ul>
-<section class="sec" aria-label="How it works">
-<div class="hf"><div class="n">Question<small>Follow-ups included</small></div><i class="l"></i><div class="n">Intent<small>Local Gemma</small></div><i class="l"></i><div class="n">Evidence · Math<small>Code · Decimal</small></div><i class="l"></i><div class="n">Storage<small>PostgreSQL</small></div></div>
+<ul class="nums"><li><b>120</b><span>Korean and English runs passed</span></li><li><b>2.96 s</b><span>median response time<small>M1 Pro</small></span></li><li><b>15</b><span>filing figures verified</span></li></ul>
+<section class="sec"><h2>Should the model do the arithmetic?</h2><p>In model experiments, the model described increases and decreases wrongly even when it picked the right evidence. So the model only interprets the question, and code selects the evidence, calculates with Decimal and writes the financial answer in Korean or English.</p></section>
+<div class="shots one"><figure><a href="../../assets/agent-en-20261001.png" target="_blank" rel="noreferrer"><picture><source media="(max-width:640px)" srcset="../../assets/thumb-agent-en-20261113.webp"><img src="../../assets/agent-en-20261001.png" alt="Recorded research · annual revenue comparison with source evidence" loading="lazy" decoding="async"></picture></a><figcaption>Recorded research · annual revenue comparison with source evidence</figcaption></figure></div>
+<section class="sec">
+<h2>Highlights</h2>
+<ul class="facts"><li>The model <b>only interprets</b>; code selects and calculates</li><li>Three LangGraph stages with PostgreSQL checkpoints</li><li>A repeated request is <b>processed once</b> by request_id</li><li><b>120</b> Korean and English runs passed · median 2.96 s</li></ul>
+</section>
+<section class="sec">
+<h2>How it works</h2>
 <ol class="walk"><li><b>Question</b><p>Each request carries a request_id, so the same request is processed only once even if it arrives twice. A failed question can be retried once.</p></li><li><b>Intent</b><p>The local Gemma model only returns what the question is asking, in a fixed format. The parser rejects responses that contain an unknown company or a value outside the allowed set, and the model never sees the figures.</p></li><li><b>Evidence · Math</b><p>Code decides which filing figures to use and does the calculation. Amounts are calculated with Decimal and rounded to two decimal places, and evidence sources are limited to two: DART (Korea's corporate filing system) and the US SEC.</p></li><li><b>Storage</b><p>LangGraph step progress is saved to PostgreSQL checkpoints. Research documents are updated under a row lock.</p></li></ol>
 </section>
-<section class="sec"><h2>Should the model do the arithmetic?</h2><p>In model experiments, the model described increases and decreases wrongly even when it picked the right evidence. So the model only interprets the question, and code selects the evidence, calculates with Decimal and writes the financial answer in Korean or English.</p></section>
-<div class="shots one"><figure><img src="../../assets/agent-en-20261001.png" alt="Recorded research · annual revenue comparison with source evidence" loading="lazy" decoding="async"><figcaption>Recorded research · annual revenue comparison with source evidence</figcaption></figure></div>
 <p class="scope">The public demo replays saved runs and accepts no new questions. Built with AI agents: I planned the work and reviewed the results, and the agent wrote the evaluation scenarios.</p>
-<nav class="pager" aria-label="Other projects"><a href="glass-table.html">← Glass Table</a><a href="fullcourt.html">FullCourt →</a></nav>
+<nav class="pager" aria-label="Other projects"><a href="glass-table.html">← Glass Table</a><a href="filing-digest.html">Filing Digest →</a></nav>
 </main>
 </div>
 <script src="../../site.js"></script>

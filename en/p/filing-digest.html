@@ -31,21 +31,25 @@
 <main id="main">
 <a class="crumb" href="../index.html#projects">← Projects</a>
 <div class="dh">
-<p class="kind">iPhone app · AI · Personal project<span class="st">Demo</span></p>
+<p class="kind">iPhone app · AI · Personal project · Jul–Nov 2026<span class="st"><span class="dot off"></span>Demo</span></p>
 <h1>Filing Digest</h1>
 <p class="intro">Browse key figures from Korean and US company filings and open the original text to check them. Figures and explanations appear together so a company's results are easier to understand.</p>
 <ul class="chips"><li>Python</li><li>FastAPI</li><li>PostgreSQL · pgvector</li><li>SwiftUI</li></ul>
 <div class="btns"><a class="btn p" href="https://mhju0.github.io/filing-digest/" target="_blank" rel="noreferrer">View demo</a><a class="btn" href="https://github.com/mhju0/filing-digest" target="_blank" rel="noreferrer">Code</a></div>
 </div>
-<ul class="facts three"><li><b>24/24</b> questions passed · 3 companies</li><li><b>18</b> companies · 23 annual filings</li><li><b>519</b> offline tests passed</li></ul>
-<section class="sec" aria-label="How it works">
-<div class="hf"><div class="n">Filing ingestion<small>DART · SEC</small></div><i class="l"></i><div class="n">Search<small>pgvector · HNSW</small></div><i class="l"></i><div class="n">Explanation<small>Gemini · JSON schema</small></div><i class="l"></i><div class="n">Checks<small>Citations · figures</small></div></div>
+<ul class="nums"><li><b>24/24</b><span>questions passed<small>3 companies</small></span></li><li><b>18</b><span>companies<small>23 annual filings</small></span></li><li><b>519</b><span>offline tests passed</span></li></ul>
+<section class="sec"><h2>Why separate figures from AI explanations?</h2><p>Financial figures come from structured data, and AI explanations are checked separately. On certain generation errors, or when a citation or number check fails, the app hides the explanation and still shows the figures.</p></section>
+<div class="shots phones"><figure><a href="../../assets/digest-en-apple-20261001.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/digest-en-apple-20261001.png" alt="Apple · summary screen" loading="lazy" decoding="async"></picture></a><figcaption>Apple · summary screen</figcaption></figure><figure><a href="../../assets/answer-en-apple-20261027.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/answer-en-apple-20261027.png" alt="Apple · answer with source evidence" loading="lazy" decoding="async"></picture></a><figcaption>Apple · answer with source evidence</figcaption></figure></div>
+<section class="sec">
+<h2>Highlights</h2>
+<ul class="facts"><li>Failed check: <b>explanation hidden</b>, figures still shown</li><li><b>24/24</b> baseline questions passed · Oct 3, 2026</li></ul>
+</section>
+<section class="sec">
+<h2>How it works</h2>
 <ol class="walk"><li><b>Filing ingestion</b><p>Filings are fetched from DART (Korea's corporate filing system) and the US SEC, and the company, filing, financial figures and text chunks are replaced in one transaction. A unique constraint on the filing's receipt number keeps the same filing from being stored twice.</p></li><li><b>Search</b><p>Text is split into chunks of up to 1,200 characters and stored as embeddings, then searched by cosine distance on a pgvector HNSW index. Chunks below the 0.42 similarity threshold are not used.</p></li><li><b>Explanation</b><p>The model is given a JSON schema and returns an explanation with citation numbers. Financial figures come from structured data, not from the model.</p></li><li><b>Checks</b><p>The app checks that each citation number points to a real chunk and that the explanation contains no financial amounts, percentages or multiples; years and counts are allowed. On failure it hides the explanation and still shows the stored figures.</p></li></ol>
 </section>
-<section class="sec"><h2>Why separate figures from AI explanations?</h2><p>Financial figures come from structured data, and AI explanations are checked separately. On certain generation errors, or when a citation or number check fails, the app hides the explanation and still shows the figures.</p></section>
-<div class="shots phones"><figure><img src="../../assets/digest-en-apple-20261001.png" alt="Apple · summary screen" loading="lazy" decoding="async"><figcaption>Apple · summary screen</figcaption></figure><figure><img src="../../assets/answer-en-apple-20261027.png" alt="Apple · answer with source evidence" loading="lazy" decoding="async"><figcaption>Apple · answer with source evidence</figcaption></figure></div>
 <p class="scope">The public walkthrough is recorded and read-only, with no API calls. Citation ID and financial-expression checks do not establish the accuracy of every sentence.</p>
-<nav class="pager" aria-label="Other projects"><a href="mammacare.html">← Mammacare</a><a href="raintoday.html">Raintoday →</a></nav>
+<nav class="pager" aria-label="Other projects"><a href="filing-agent.html">← Filing Agent</a><a href="fullcourt.html">FullCourt →</a></nav>
 </main>
 </div>
 <script src="../../site.js"></script>

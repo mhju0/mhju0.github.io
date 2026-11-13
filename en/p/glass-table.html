@@ -31,19 +31,23 @@
 <main id="main">
 <a class="crumb" href="../index.html#projects">← Projects</a>
 <div class="dh">
-<p class="kind">iPhone app · Personal project<span class="st">TestFlight beta</span></p>
+<p class="kind">iPhone app · Personal project<span class="st"><span class="dot off"></span>TestFlight beta</span></p>
 <h1>Glass Table</h1>
 <p class="intro">I like teaching, so I built this iPhone app for people learning poker for the first time. Each lesson moves from a worked example to a guided problem to solving alone, and the app picks review problems based on what you solved on your own. It works offline with no account, and study records are stored on the device.</p>
 <ul class="chips"><li>Swift</li><li>SwiftUI</li></ul>
 <div class="btns"><a class="btn p" href="https://github.com/mhju0/glass-table" target="_blank" rel="noreferrer">Code</a></div>
 </div>
 
-<section class="sec" aria-label="How it works">
-<div class="hf"><div class="n">Problem generation<small>Fixed seed</small></div><i class="l"></i><div class="n">Win probability<small>Exhaustive</small></div><i class="l"></i><div class="n">Review schedule<small>FSRS-6</small></div><i class="l"></i><div class="n">Storage<small>Atomic writes</small></div></div>
+<section class="sec"><h2>How did I check that the app's numbers are right?</h2><p>While preparing for release, I compared the app's numbers with a separate verification program. The calculations were correct, but I fixed seven places in the explanations and display, and switched flop grading at the heads-up graded table from sampling to exhaustive enumeration.</p></section>
+<div class="shots phones"><figure><a href="../../assets/glass-learn-build37-en-20261026.jpg" target="_blank" rel="noreferrer"><picture><img src="../../assets/glass-learn-build37-en-20261026.jpg" alt="Learn · build 37 simulator screen" loading="lazy" decoding="async"></picture></a><figcaption>Learn · build 37 simulator screen</figcaption></figure><figure><a href="../../assets/glass-table-build37-en-20261026.jpg" target="_blank" rel="noreferrer"><picture><img src="../../assets/glass-table-build37-en-20261026.jpg" alt="Free four-player table · build 37 simulator screen" loading="lazy" decoding="async"></picture></a><figcaption>Free four-player table · build 37 simulator screen</figcaption></figure></div>
+<section class="sec">
+<h2>Highlights</h2>
+<ul class="facts"><li>Win probability is <b>enumerated exhaustively</b>, not sampled</li><li>If a save fails, <b>progress does not advance</b></li></ul>
+</section>
+<section class="sec">
+<h2>How it works</h2>
 <ol class="walk"><li><b>Problem generation</b><p>The same seed and sequence number always produce the same problem. A missed problem can be rebuilt exactly and checked again.</p></li><li><b>Win probability</b><p>Win probability is calculated by counting every combination of the remaining cards. It is not estimated from random samples.</p></li><li><b>Review schedule</b><p>Records of problems solved alone feed FSRS-6, which picks what to review next.</p></li><li><b>Storage</b><p>Study records are written atomically to a JSON file. If a save fails, progress does not advance until the save succeeds.</p></li></ol>
 </section>
-<section class="sec"><h2>How did I check that the app's numbers are right?</h2><p>While preparing for release, I compared the app's numbers with a separate verification program. The calculations were correct, but I fixed seven places in the explanations and display, and switched flop grading at the heads-up graded table from sampling to exhaustive enumeration.</p></section>
-<div class="shots phones"><figure><img src="../../assets/glass-learn-build37-en-20261026.jpg" alt="Learn · build 37 simulator screen" loading="lazy" decoding="async"><figcaption>Learn · build 37 simulator screen</figcaption></figure><figure><img src="../../assets/glass-table-build37-en-20261026.jpg" alt="Free four-player table · build 37 simulator screen" loading="lazy" decoding="async"><figcaption>Free four-player table · build 37 simulator screen</figcaption></figure></div>
 <p class="scope">In TestFlight beta and not yet on the App Store.</p>
 <nav class="pager" aria-label="Other projects"><a href="letter-game.html">← Infinity Chosung</a><a href="filing-agent.html">Filing Agent →</a></nav>
 </main>

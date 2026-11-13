@@ -31,21 +31,25 @@
 <main id="main">
 <a class="crumb" href="../index.html#projects">← 프로젝트</a>
 <div class="dh">
-<p class="kind">웹 · AI · 5인 팀장 · 2026.05–2026.06<span class="st">우수상(2위)</span></p>
+<p class="kind">웹 · AI · 팀 프로젝트 · 2026.05–2026.06</p>
 <h1>Mammacare</h1>
 <p class="intro">아기가 먹은 음식과 알레르기 반응을 기록하고, 월령과 알레르기 기록을 고려한 AI 이유식 식단을 추천합니다. 새로운 재료를 하나씩 확인하는 알레르기 관찰 규칙도 식단에 반영합니다. 저는 팀장으로 백엔드의 인증, 식사 알림, AI 식단 생성 로직을 맡았습니다.</p>
 <ul class="chips"><li>FastAPI</li><li>PostgreSQL</li><li>Azure OpenAI</li><li>React</li><li>FCM</li></ul>
 <div class="btns"></div>
 </div>
-
-<section class="sec" aria-label="동작 흐름">
-<div class="hf"><div class="n">아이 정보<small>월령 · 알레르기 기록</small></div><i class="l"></i><div class="n">후보 선정<small>코드</small></div><i class="l"></i><div class="n">식단 생성<small>Azure OpenAI · JSON</small></div><i class="l"></i><div class="n">결과 보정<small>코드</small></div></div>
+<ul class="nums two"><li><b>우수상</b><span>아카데미 최종 발표 2위</span></li><li><b>5인 팀</b><span>팀장<small>코드 검토와 병합</small></span></li></ul>
+<section class="sec"><h2>모든 식단에 AI 호출이 필요할까?</h2><p>아니요. 규칙만으로 정해지는 식단은 모델을 호출하지 않고 코드로 만들고, 모델이 후보에 없는 재료를 돌려주면 승인된 후보로 바꿉니다. 프롬프트에 맡겼던 후보 선정도 코드로 옮겼습니다.</p></section>
+<div class="shots fit" style="--a:809fr;--b:573fr"><figure><a href="../../assets/mamma-ai-preview.webp" target="_blank" rel="noreferrer"><picture><source media="(max-width:640px)" srcset="../../assets/thumb-mamma-20261113.webp"><img src="../../assets/mamma-ai-preview.webp" alt="AI 식단 미리보기" loading="lazy" decoding="async"></picture></a><figcaption>AI 식단 미리보기</figcaption></figure><figure><a href="../../assets/mamma_reaction.webp" target="_blank" rel="noreferrer"><picture><img src="../../assets/mamma_reaction.webp" alt="재료별 반응 기록 예시" loading="lazy" decoding="async"></picture></a><figcaption>재료별 반응 기록 예시</figcaption></figure></div>
+<section class="sec">
+<h2>핵심</h2>
+<ul class="facts"><li>5인 팀 팀장 · 코드 검토와 병합</li><li><b>확정 알레르기 재료</b>는 모델 호출 전에 후보에서 제외</li><li>JWT 인증과 <span class="nb">Google·Kakao·Naver</span> 로그인</li><li>식사 알림에 <b>중복 방지 키</b> 적용</li></ul>
+</section>
+<section class="sec">
+<h2>동작 흐름</h2>
 <ol class="walk"><li><b>아이 정보</b><p>아이의 월령과 지금까지의 알레르기 기록이 식단 생성의 입력입니다.</p></li><li><b>후보 선정</b><p>프롬프트에 맡겼던 후보 선정과 대체 구성을 코드로 옮겼습니다. 월령과 알레르기 기록에 따라 쓸 수 있는 재료를 먼저 거릅니다.</p></li><li><b>식단 생성</b><p>Azure OpenAI를 JSON 형식 응답으로 호출합니다. 규칙만으로 정해지는 식단은 모델을 호출하지 않고 만듭니다.</p></li><li><b>결과 보정</b><p>모델이 후보에 없는 재료를 돌려주면 승인된 후보로 바꿉니다. 확정된 알레르기 재료는 모델을 호출하기 전에 후보에서 이미 뺐습니다.</p></li></ol>
 </section>
-<section class="sec"><h2>모든 식단에 AI 호출이 필요할까?</h2><p>아니요. 규칙만으로 정해지는 식단은 모델을 호출하지 않고 코드로 만들고, 모델이 후보에 없는 재료를 돌려주면 승인된 후보로 바꿉니다. 프롬프트에 맡겼던 후보 선정도 코드로 옮겼습니다.</p></section>
-<div class="shots fit" style="--a:809fr;--b:573fr"><figure><img src="../../assets/mamma-ai-preview.webp" alt="AI 식단 미리보기" loading="lazy" decoding="async"><figcaption>AI 식단 미리보기</figcaption></figure><figure><img src="../../assets/mamma_reaction.webp" alt="재료별 반응 기록 예시" loading="lazy" decoding="async"><figcaption>재료별 반응 기록 예시</figcaption></figure></div>
 <p class="scope">Microsoft AI 소프트웨어 아카데미 3기의 최종 팀 프로젝트(2026년 5–6월, Azure)이며, 우수상(2위)을 받았습니다.</p>
-<nav class="pager" aria-label="다른 프로젝트"><a href="fullcourt.html">← FullCourt</a><a href="filing-digest.html">Filing Digest →</a></nav>
+<nav class="pager" aria-label="다른 프로젝트"><a href="fullcourt.html">← FullCourt</a><a href="raintoday.html">오늘비 →</a></nav>
 </main>
 </div>
 <script src="../../site.js"></script>

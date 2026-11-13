@@ -37,15 +37,19 @@
 <ul class="chips"><li>TypeScript</li><li>Next.js</li><li>PostgreSQL</li></ul>
 <div class="btns"><a class="btn p" href="https://raintoday.vercel.app" target="_blank" rel="noreferrer">Open site</a><a class="btn" href="https://github.com/mhju0/raintoday" target="_blank" rel="noreferrer">Code</a></div>
 </div>
-<ul class="facts three"><li><b>97</b> KMA observation stations</li><li><b>9,712</b> stored forecasts · Oct 15, 2026</li><li><b>5</b> weather services compared</li></ul>
-<section class="sec" aria-label="How it works">
-<div class="hf"><div class="n">Forecast collection<small>Five services</small></div><i class="l"></i><div class="n">Storage<small>As issued</small></div><i class="l"></i><div class="n">Observation check<small>97 KMA stations</small></div><i class="l"></i><div class="n">Weighted blend<small>Brier score</small></div></div>
+<ul class="nums"><li><b>97</b><span>KMA observation stations</span></li><li><b>9,712</b><span>stored forecasts<small>Oct 15, 2026</small></span></li><li><b>5</b><span>weather services compared</span></li></ul>
+<section class="sec"><h2>Why preserve a forecast as issued?</h2><p>Forecasts are kept exactly as issued. When part of a collection fails, it is retried only under set conditions and after a wait, and later values never fill in past forecasts. A finished retry is not counted as a successful collection, and missing data is treated differently from a 0% chance of rain.</p></section>
+<div class="shots one"><figure><a href="../../assets/rain-jeju-20261013.jpg" target="_blank" rel="noreferrer"><picture><img src="../../assets/rain-jeju-20261013.jpg" alt="Jeju forecast screenshot · not current weather" loading="lazy" decoding="async"></picture></a><figcaption>Jeju forecast screenshot · not current weather</figcaption></figure></div>
+<section class="sec">
+<h2>Highlights</h2>
+<ul class="facts"><li>Forecasts are kept as issued and <b>never overwritten</b></li><li>Checked against actual observations from <b>97 KMA stations</b></li></ul>
+</section>
+<section class="sec">
+<h2>How it works</h2>
 <ol class="walk"><li><b>Forecast collection</b><p>Scheduled runs fetch forecasts from <span class="nb">Open-Meteo</span>, the Korea Meteorological Administration (KMA), Pirate Weather, WeatherAPI and Visual Crossing. KMA transport errors are retried up to three times with increasing delays.</p></li><li><b>Storage</b><p>Station, date and issue run form the primary key, and an existing forecast is never touched. A later value cannot overwrite a forecast stored earlier.</p></li><li><b>Observation check</b><p>Actual observations from 97 KMA stations are fetched later and compared with the stored forecasts. As of Oct 15, 2026, 9,712 forecasts and 5,529 observations had accumulated.</p></li><li><b>Weighted blend</b><p>Services with better recent Brier scores get more weight. When the benchmark has too few comparisons, or shows the weighted blend scoring worse than equal weighting, all services are weighted equally.</p></li></ol>
 </section>
-<section class="sec"><h2>Why preserve a forecast as issued?</h2><p>Forecasts are kept exactly as issued. When part of a collection fails, it is retried only under set conditions and after a wait, and later values never fill in past forecasts. A finished retry is not counted as a successful collection, and missing data is treated differently from a 0% chance of rain.</p></section>
-<div class="shots one"><figure><img src="../../assets/rain-jeju-20261013.jpg" alt="Jeju forecast screenshot · not current weather" loading="lazy" decoding="async"><figcaption>Jeju forecast screenshot · not current weather</figcaption></figure></div>
 <p class="scope">This comparison does not show that Raintoday is more accurate overall.</p>
-<nav class="pager" aria-label="Other projects"><a href="filing-digest.html">← Filing Digest</a><a href="stock-game.html">Stock Game →</a></nav>
+<nav class="pager" aria-label="Other projects"><a href="mammacare.html">← Mammacare</a><a href="stock-game.html">Stock Game →</a></nav>
 </main>
 </div>
 <script src="../../site.js"></script>

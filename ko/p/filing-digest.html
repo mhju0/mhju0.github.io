@@ -31,21 +31,25 @@
 <main id="main">
 <a class="crumb" href="../index.html#projects">← 프로젝트</a>
 <div class="dh">
-<p class="kind">iPhone 앱 · AI · 개인 프로젝트<span class="st">데모</span></p>
+<p class="kind">iPhone 앱 · AI · 개인 프로젝트 · 2026.07–2026.11<span class="st"><span class="dot off"></span>데모</span></p>
 <h1>Filing Digest</h1>
 <p class="intro">한국과 미국 기업의 공시에서 주요 수치를 살펴보고, 원문을 열어 확인할 수 있습니다. 수치와 설명을 함께 보며 기업의 실적을 이해할 수 있도록 만들었습니다.</p>
 <ul class="chips"><li>Python</li><li>FastAPI</li><li>PostgreSQL · pgvector</li><li>SwiftUI</li></ul>
 <div class="btns"><a class="btn p" href="https://mhju0.github.io/filing-digest/" target="_blank" rel="noreferrer">데모 보기</a><a class="btn" href="https://github.com/mhju0/filing-digest" target="_blank" rel="noreferrer">코드</a></div>
 </div>
-<ul class="facts three"><li><b>24/24</b> 기준 질문 통과 · 3개 기업</li><li><b>18개</b> 기업 · 연간 공시 23건</li><li><b>519</b> 오프라인 테스트 통과</li></ul>
-<section class="sec" aria-label="동작 흐름">
-<div class="hf"><div class="n">공시 수집<small>DART · SEC</small></div><i class="l"></i><div class="n">검색<small>pgvector · HNSW</small></div><i class="l"></i><div class="n">설명 생성<small>Gemini · JSON 스키마</small></div><i class="l"></i><div class="n">검사<small>인용 · 수치</small></div></div>
+<ul class="nums"><li><b>24/24</b><span>기준 질문 통과<small>3개 기업</small></span></li><li><b>18개</b><span>기업<small>연간 공시 23건</small></span></li><li><b>519</b><span>오프라인 테스트 통과</span></li></ul>
+<section class="sec"><h2>왜 수치와 AI 설명을 분리했나?</h2><p>재무 수치는 구조화 데이터에서 가져오고 AI 설명은 별도로 검사합니다. 일부 생성 오류나 <span class="nb">인용·수치</span> 검사 실패 시 설명을 숨기고 수치는 그대로 보여 줍니다.</p></section>
+<div class="shots phones"><figure><a href="../../assets/digest-ko-samsung-20261026.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/digest-ko-samsung-20261026.png" alt="삼성전자 · 요약 화면" loading="lazy" decoding="async"></picture></a><figcaption>삼성전자 · 요약 화면</figcaption></figure><figure><a href="../../assets/answer-ko-samsung-20261026.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/answer-ko-samsung-20261026.png" alt="삼성전자 · 답변과 근거 확인" loading="lazy" decoding="async"></picture></a><figcaption>삼성전자 · 답변과 근거 확인</figcaption></figure></div>
+<section class="sec">
+<h2>핵심</h2>
+<ul class="facts"><li>검사에 실패하면 <b>설명을 숨기고</b> 저장된 수치는 그대로 표시</li><li>기준 질문 <b>24/24</b> 통과 · 2026.10.03</li></ul>
+</section>
+<section class="sec">
+<h2>동작 흐름</h2>
 <ol class="walk"><li><b>공시 수집</b><p>DART와 SEC 공시를 받아 회사, 공시, 재무 수치, 본문 조각을 한 트랜잭션에서 교체합니다. 접수번호에 고유 제약을 걸어 같은 공시가 두 번 들어가지 않습니다.</p></li><li><b>검색</b><p>본문을 최대 1,200자 조각으로 나눠 임베딩으로 저장하고, pgvector의 HNSW 인덱스에서 코사인 거리로 찾습니다. 유사도 기준 0.42에 못 미치는 조각은 쓰지 않습니다.</p></li><li><b>설명 생성</b><p>모델에는 JSON 스키마를 지정해 설명과 인용 번호를 받습니다. 재무 수치는 모델이 아니라 구조화된 데이터에서 가져옵니다.</p></li><li><b>검사</b><p>인용 번호가 실제 조각을 가리키는지, 설명에 <span class="nb">금액·비율·배수</span> 같은 재무 수치가 들어가지 않았는지 검사합니다. 연도와 개수는 허용합니다. 실패하면 설명을 숨기고 저장된 수치는 그대로 보여 줍니다.</p></li></ol>
 </section>
-<section class="sec"><h2>왜 수치와 AI 설명을 분리했나?</h2><p>재무 수치는 구조화 데이터에서 가져오고 AI 설명은 별도로 검사합니다. 일부 생성 오류나 <span class="nb">인용·수치</span> 검사 실패 시 설명을 숨기고 수치는 그대로 보여 줍니다.</p></section>
-<div class="shots phones"><figure><img src="../../assets/digest-ko-samsung-20261026.png" alt="삼성전자 · 요약 화면" loading="lazy" decoding="async"><figcaption>삼성전자 · 요약 화면</figcaption></figure><figure><img src="../../assets/answer-ko-samsung-20261026.png" alt="삼성전자 · 답변과 근거 확인" loading="lazy" decoding="async"><figcaption>삼성전자 · 답변과 근거 확인</figcaption></figure></div>
 <p class="scope">공개 데모는 녹화된 읽기 전용 워크스루이며 실제 API를 호출하지 않습니다. 인용 <span class="nb">번호·금융</span> 표현 검사가 모든 문장의 정확성을 보장하지는 않습니다.</p>
-<nav class="pager" aria-label="다른 프로젝트"><a href="mammacare.html">← Mammacare</a><a href="raintoday.html">오늘비 →</a></nav>
+<nav class="pager" aria-label="다른 프로젝트"><a href="filing-agent.html">← Filing Agent</a><a href="fullcourt.html">FullCourt →</a></nav>
 </main>
 </div>
 <script src="../../site.js"></script>

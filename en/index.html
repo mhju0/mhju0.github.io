@@ -31,44 +31,67 @@
 <main id="main">
 <section>
 <h1>Building services with AI and data</h1>
-<p class="tag">Curiosity, built</p>
+<p class="tag"><span class="nb">Python</span> · <span class="nb">FastAPI</span> · <span class="nb">PostgreSQL</span> · <span class="nb">TypeScript</span> · <span class="nb">LLM response verification</span></p>
 </section>
 <section id="projects" aria-label="Projects">
 <article class="card">
+<div class="ct">
+<div class="cx">
 <p class="kind">Web · AI · Personal project · Sep–Nov 2026</p>
 <h2><a href="p/filing-agent.html">Filing Agent</a></h2>
 <p class="pd">Ask about and compare filing figures, with the source behind every answer</p>
-<div class="hf"><div class="n">Question<small>Follow-ups included</small></div><i class="l"></i><div class="n">Intent<small>Local Gemma</small></div><i class="l"></i><div class="n">Evidence · Math<small>Code · Decimal</small></div><i class="l"></i><div class="n">Storage<small>PostgreSQL</small></div></div>
-<ul class="facts"><li>The model <b>only interprets</b>; code selects and calculates</li><li>Three LangGraph stages with PostgreSQL checkpoints</li><li>A repeated request is <b>processed once</b> by request_id</li><li><b>120</b> Korean and English runs passed · median 2.96 s</li></ul>
+<p class="stk"><span>Python ·</span> <span>FastAPI ·</span> <span>LangGraph ·</span> <span>PostgreSQL ·</span> <span>React</span></p>
+<ul class="nums"><li><b>120</b><span>Korean and English runs passed</span></li><li><b>2.96 s</b><span>median response time<small>M1 Pro</small></span></li><li><b>15</b><span>filing figures verified</span></li></ul>
 <div class="acts"><a class="btn s" href="p/filing-agent.html" aria-label="Filing Agent · Details">Details →</a><a class="btn s" href="https://filing-agent.vercel.app/" target="_blank" rel="noreferrer">View demo<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/filing-agent" target="_blank" rel="noreferrer">Code<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
+</div>
+<a class="th" href="p/filing-agent.html" tabindex="-1"><img src="../assets/thumb-agent-en-20261113.webp" alt="Recorded research · annual revenue comparison with source evidence"></a>
+</div>
+<div class="hf"><div class="n">Question<small>Follow-ups included</small></div><i class="l"></i><div class="n">Intent<small>Local Gemma</small></div><i class="l"></i><div class="n">Evidence · Math<small>Code · Decimal</small></div><i class="l"></i><div class="n">Storage<small>PostgreSQL</small></div></div>
 </article>
 <article class="card">
-<p class="kind">Web · Data · Personal project<span class="st"><span class="dot"></span>Live</span></p>
+<div class="ct">
+<div class="cx">
+<p class="kind">iPhone app · AI · Personal project · Jul–Nov 2026<span class="st"><span class="dot off"></span>Demo</span></p>
+<h2><a href="p/filing-digest.html">Filing Digest</a></h2>
+<p class="pd">Read filing figures next to the original source text</p>
+<p class="stk"><span>Python ·</span> <span>FastAPI ·</span> <span>PostgreSQL · pgvector ·</span> <span>SwiftUI</span></p>
+<ul class="nums"><li><b>24/24</b><span>questions passed<small>3 companies</small></span></li><li><b>18</b><span>companies<small>23 annual filings</small></span></li><li><b>519</b><span>offline tests passed</span></li></ul>
+<div class="acts"><a class="btn s" href="p/filing-digest.html" aria-label="Filing Digest · Details">Details →</a><a class="btn s" href="https://mhju0.github.io/filing-digest/" target="_blank" rel="noreferrer">View demo<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/filing-digest" target="_blank" rel="noreferrer">Code<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
+</div>
+<a class="th" href="p/filing-digest.html" tabindex="-1"><img src="../assets/thumb-digest-en-20261113.webp" alt="Apple · summary screen"></a>
+</div>
+<div class="hf"><div class="n">Filing ingestion<small>DART · SEC</small></div><i class="l"></i><div class="n">Search<small>pgvector · HNSW</small></div><i class="l"></i><div class="n">Explanation<small>Gemini · JSON schema</small></div><i class="l"></i><div class="n">Checks<small>Citations · figures</small></div></div>
+</article>
+<article class="card">
+<div class="ct">
+<div class="cx">
+<p class="kind">Web · Data · Personal project · Mar–Nov 2026<span class="st"><span class="dot"></span>Live</span></p>
 <h2><a href="p/fullcourt.html">FullCourt</a></h2>
 <p class="pd">Compare rest days and travel distance for NBA teams</p>
-<div class="hf"><div class="n">Schedule collection<small>Runs daily</small></div><i class="l"></i><div class="n">Rest · Travel<small>TypeScript</small></div><i class="l"></i><div class="n">Storage<small>PostgreSQL · row locks</small></div><i class="l"></i><div class="n">Pages<small>Next.js · CDN cache</small></div></div>
-<ul class="facts"><li>Game updates run in a transaction with <b>row locks</b></li><li><b>783</b> missing overtime records filled from primary sources</li><li>Lock order fixed by game ID to prevent deadlocks</li><li>Transaction tests run on <b>real PostgreSQL</b> in CI</li></ul>
+<p class="stk"><span>TypeScript ·</span> <span>Next.js ·</span> <span>PostgreSQL ·</span> <span>Drizzle ORM ·</span> <span>Python · scikit-learn</span></p>
+<ul class="nums"><li><b>783</b><span>missing overtime records filled from primary sources</span></li><li><b>346</b><span>more overtime records corrected from NBA box scores</span></li><li><b>51,695</b><span>games, including scheduled</span></li></ul>
 <div class="acts"><a class="btn s" href="p/fullcourt.html" aria-label="FullCourt · Details">Details →</a><a class="btn s" href="https://fullcourt.fyi/" target="_blank" rel="noreferrer">Open site<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/fullcourt" target="_blank" rel="noreferrer">Code<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
+</div>
+<a class="th" href="p/fullcourt.html" tabindex="-1"><img src="../assets/thumb-fullcourt-20261113.webp" alt="December 2, 2024 game · team records with rest and travel load"></a>
+</div>
+<div class="hf"><div class="n">Schedule collection<small>Runs daily</small></div><i class="l"></i><div class="n">Rest · Travel<small>TypeScript</small></div><i class="l"></i><div class="n">Storage<small>PostgreSQL · row locks</small></div><i class="l"></i><div class="n">Pages<small>Next.js · CDN cache</small></div></div>
 </article>
 <article class="card">
-<p class="kind">Web · AI · Led a team of 5 · May–Jun 2026<span class="st">Excellence Award (2nd place)</span></p>
+<div class="ct">
+<div class="cx">
+<p class="kind">Web · AI · Team project · May–Jun 2026</p>
 <h2><a href="p/mammacare.html">Mammacare</a></h2>
 <p class="pd">A baby allergy log with AI meal plans</p>
-<div class="hf"><div class="n">Child profile<small>Age · allergy records</small></div><i class="l"></i><div class="n">Ingredient shortlist<small>Code</small></div><i class="l"></i><div class="n">Meal generation<small>Azure OpenAI · JSON</small></div><i class="l"></i><div class="n">Result correction<small>Code</small></div></div>
-<ul class="facts"><li>Led a team of five · code review and merges</li><li><b>Confirmed allergens</b> removed before the model call</li><li>JWT authentication with Google, Kakao and Naver sign-in</li><li><b>Duplicate-prevention keys</b> on meal reminders</li></ul>
+<p class="stk"><span>FastAPI ·</span> <span>PostgreSQL ·</span> <span>Azure OpenAI ·</span> <span>React ·</span> <span>FCM</span></p>
+<ul class="nums two"><li><b>Excellence Award</b><span>2nd place<small>academy final presentation</small></span></li><li><b>Team of 5</b><span>team lead<small>code review and merges</small></span></li></ul>
 <div class="acts"><a class="btn s" href="p/mammacare.html" aria-label="Mammacare · Details">Details →</a></div>
+</div>
+<a class="th" href="p/mammacare.html" tabindex="-1"><img src="../assets/thumb-mamma-20261113.webp" alt="AI meal-plan preview"></a>
+</div>
+<div class="hf"><div class="n">Child profile<small>Age · allergy records</small></div><i class="l"></i><div class="n">Ingredient shortlist<small>Code</small></div><i class="l"></i><div class="n">Meal generation<small>Azure OpenAI · JSON</small></div><i class="l"></i><div class="n">Result correction<small>Code</small></div></div>
 </article>
 
 <div class="rows">
-<details>
-<summary><b>Filing Digest</b><span>Python · FastAPI · pgvector · SwiftUI</span><em class="st">Demo</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
-<div class="in">
-<p class="pd">Read filing figures next to the original source text</p>
-<div class="hf"><div class="n">Filing ingestion<small>DART · SEC</small></div><i class="l"></i><div class="n">Search<small>pgvector · HNSW</small></div><i class="l"></i><div class="n">Explanation<small>Gemini · JSON schema</small></div><i class="l"></i><div class="n">Checks<small>Citations · figures</small></div></div>
-<ul class="facts"><li>Failed check: <b>explanation hidden</b>, figures still shown</li><li><b>24/24</b> baseline questions passed · Oct 3, 2026</li></ul>
-<div class="acts"><a class="btn s" href="p/filing-digest.html" aria-label="Filing Digest · Details">Details →</a><a class="btn s" href="https://mhju0.github.io/filing-digest/" target="_blank" rel="noreferrer">View demo<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/filing-digest" target="_blank" rel="noreferrer">Code<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
-</div>
-</details>
 <details>
 <summary><b>Raintoday</b><span>TypeScript · Next.js · PostgreSQL</span><em class="st"><span class="dot"></span>Live</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
 <div class="in">
@@ -97,7 +120,7 @@
 </div>
 </details>
 <details>
-<summary><b>Infinity Chosung</b><span>Spring Boot · PostgreSQL · SwiftUI</span><em class="st">TestFlight beta</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
+<summary><b>Infinity Chosung</b><span>Spring Boot · PostgreSQL · SwiftUI</span><em class="st"><span class="dot off"></span>TestFlight beta</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
 <div class="in">
 <p class="pd">A word game: find two-syllable nouns that match two Korean initial consonants in 60 seconds</p>
 <div class="hf"><div class="n">Round<small>60 seconds · offline</small></div><i class="l"></i><div class="n">Queue<small>Saved on device</small></div><i class="l"></i><div class="n">Submission<small>SHA-256 key</small></div><i class="l"></i><div class="n">Storage<small>PostgreSQL · Flyway</small></div></div>
@@ -106,7 +129,7 @@
 </div>
 </details>
 <details>
-<summary><b>Glass Table</b><span>Swift · SwiftUI</span><em class="st">TestFlight beta</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
+<summary><b>Glass Table</b><span>Swift · SwiftUI</span><em class="st"><span class="dot off"></span>TestFlight beta</em><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></i></summary>
 <div class="in">
 <p class="pd">A practice app for people new to poker</p>
 <div class="hf"><div class="n">Problem generation<small>Fixed seed</small></div><i class="l"></i><div class="n">Win probability<small>Exhaustive</small></div><i class="l"></i><div class="n">Review schedule<small>FSRS-6</small></div><i class="l"></i><div class="n">Storage<small>Atomic writes</small></div></div>
@@ -118,8 +141,8 @@
 </div>
 </section>
 <section class="quals" aria-label="Education and certifications">
-<div><h2>Education</h2>Microsoft AI Software Academy<br>The University of Texas at Austin</div>
-<div><h2>Certifications</h2>Microsoft Azure AI Fundamentals (AI-900)<br>SQL Developer (SQLD)</div>
+<div><h2>Education</h2><ul><li><span>Microsoft AI Software Academy</span><time>Dec 2025–Jun 2026</time></li><li><span>The University of Texas at Austin</span><time>Aug 2015–May 2022</time></li></ul></div>
+<div><h2>Certifications</h2><ul><li><span>Azure AI Fundamentals (AI-900)</span><time>Apr 2026</time></li><li><span>SQL Developer (SQLD)</span><time>Mar 2026</time></li></ul></div>
 </section>
 <section class="contact" id="contact">
 <h2>Contact</h2>
