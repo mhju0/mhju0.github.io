@@ -47,15 +47,15 @@
 <h2><a href="p/fullcourt.html">FullCourt</a></h2>
 <p class="pd">NBA 팀의 휴식일과 이동 거리를 비교하는 사이트</p>
 <div class="hf"><div class="n">일정 수집<small>매일 자동 실행</small></div><i class="l"></i><div class="n">휴식 · 이동 계산<small>TypeScript</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL · 행 잠금</small></div><i class="l"></i><div class="n">화면<small>Next.js · CDN 캐시</small></div></div>
-<ul class="facts"><li>경기 갱신은 트랜잭션과 <b>행 잠금</b>으로 처리</li><li>저장된 경기를 외부 기록과 대조해 <b>14행 수정</b></li><li>잠금 순서를 경기 ID로 고정해 교착 상태 방지</li><li>CI에서 <b>실제 PostgreSQL</b>로 트랜잭션 테스트</li></ul>
+<ul class="facts"><li>경기 갱신은 트랜잭션과 <b>행 잠금</b>으로 처리</li><li>구할 수 있는 외부 기록과 대조해 <b>14행 수정</b></li><li>잠금 순서를 경기 ID로 고정해 교착 상태 방지</li><li>CI에서 <b>실제 PostgreSQL</b>로 트랜잭션 테스트</li></ul>
 <div class="acts"><a class="btn s" href="p/fullcourt.html" aria-label="FullCourt · 자세히 보기">자세히 보기 →</a><a class="btn s" href="https://fullcourt.fyi/" target="_blank" rel="noreferrer">사이트 열기<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/fullcourt" target="_blank" rel="noreferrer">코드<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
 </article>
 <article class="card">
 <p class="kind">웹 · AI · 5인 팀장 · 2026.05–2026.06<span class="st">우수상(2위)</span></p>
 <h2><a href="p/mammacare.html">Mammacare</a></h2>
 <p class="pd">아기 알레르기 기록과 AI 이유식 식단 앱</p>
-<div class="hf"><div class="n">아이 정보<small>월령 · 알레르기 기록</small></div><i class="l"></i><div class="n">후보 선정<small>코드</small></div><i class="l"></i><div class="n">식단 생성<small>Azure OpenAI · JSON</small></div><i class="l"></i><div class="n">규칙 검증<small>코드</small></div></div>
-<ul class="facts"><li>5인 팀 팀장 · 코드 검토와 병합</li><li><b>확정 알레르기 재료</b>가 든 식단은 코드에서 거부</li><li>JWT 인증과 <span class="nb">Google·Kakao·Naver</span> 로그인</li><li>식사 알림에 <b>중복 방지 키</b> 적용</li></ul>
+<div class="hf"><div class="n">아이 정보<small>월령 · 알레르기 기록</small></div><i class="l"></i><div class="n">후보 선정<small>코드</small></div><i class="l"></i><div class="n">식단 생성<small>Azure OpenAI · JSON</small></div><i class="l"></i><div class="n">결과 보정<small>코드</small></div></div>
+<ul class="facts"><li>5인 팀 팀장 · 코드 검토와 병합</li><li><b>확정 알레르기 재료</b>는 모델 호출 전에 후보에서 제외</li><li>JWT 인증과 <span class="nb">Google·Kakao·Naver</span> 로그인</li><li>식사 알림에 <b>중복 방지 키</b> 적용</li></ul>
 <div class="acts"><a class="btn s" href="p/mammacare.html" aria-label="Mammacare · 자세히 보기">자세히 보기 →</a></div>
 </article>
 
