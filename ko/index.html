@@ -47,7 +47,7 @@
 <h2><a href="p/fullcourt.html">FullCourt</a></h2>
 <p class="pd">NBA 팀의 휴식일과 이동 거리를 비교하는 사이트</p>
 <div class="hf"><div class="n">일정 수집<small>매일 자동 실행</small></div><i class="l"></i><div class="n">휴식 · 이동 계산<small>TypeScript</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL · 행 잠금</small></div><i class="l"></i><div class="n">화면<small>Next.js · CDN 캐시</small></div></div>
-<ul class="facts"><li>경기 갱신은 트랜잭션과 <b>행 잠금</b>으로 처리</li><li>구할 수 있는 외부 기록과 대조해 <b>14행 수정</b></li><li>잠금 순서를 경기 ID로 고정해 교착 상태 방지</li><li>CI에서 <b>실제 PostgreSQL</b>로 트랜잭션 테스트</li></ul>
+<ul class="facts"><li>경기 갱신은 트랜잭션과 <b>행 잠금</b>으로 처리</li><li>빠진 연장전 기록 <b>783건</b>을 1차 출처로 보완</li><li>잠금 순서를 경기 ID로 고정해 교착 상태 방지</li><li>CI에서 <b>실제 PostgreSQL</b>로 트랜잭션 테스트</li></ul>
 <div class="acts"><a class="btn s" href="p/fullcourt.html" aria-label="FullCourt · 자세히 보기">자세히 보기 →</a><a class="btn s" href="https://fullcourt.fyi/" target="_blank" rel="noreferrer">사이트 열기<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/fullcourt" target="_blank" rel="noreferrer">코드<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
 </article>
 <article class="card">
@@ -83,7 +83,7 @@
 <div class="in">
 <p class="pd">가상 자금으로 <span class="nb">한국·미국</span> 주식 투자를 연습하는 게임</p>
 <div class="hf"><div class="n">주문<small>JWT 인증</small></div><i class="l"></i><div class="n">행 잠금<small>FOR UPDATE</small></div><i class="l"></i><div class="n">체결<small>동시성 테스트</small></div><i class="l"></i><div class="n">자산 기록<small>매시간</small></div></div>
-<ul class="facts"><li>잔고 확인과 차감을 <b>행 잠금</b>으로 한 번에 처리</li><li>실제 PostgreSQL에서 동시 주문 테스트 <b>14개</b></li></ul>
+<ul class="facts"><li>잔고 확인과 차감을 <b>행 잠금</b>으로 한 번에 처리</li><li>실제 PostgreSQL에서 동시성 테스트 케이스 <b>17개</b></li></ul>
 <div class="acts"><a class="btn s" href="p/stock-game.html" aria-label="Stock Game · 자세히 보기">자세히 보기 →</a><a class="btn s" href="https://stock-game-gray.vercel.app" target="_blank" rel="noreferrer">사이트 열기<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/stock-game" target="_blank" rel="noreferrer">코드<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
 </div>
 </details>
