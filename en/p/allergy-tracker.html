@@ -37,13 +37,17 @@
 <ul class="chips"><li>React Native</li><li>Expo</li><li>TypeScript</li><li>SQLite</li></ul>
 <div class="btns"><a class="btn p" href="https://apps.apple.com/kr/app/id6827961276" target="_blank" rel="noreferrer">App Store</a><a class="btn" href="https://github.com/mhju0/allergy-tracker" target="_blank" rel="noreferrer">Code</a></div>
 </div>
-<ul class="facts three"><li><b>120</b> baby-food ingredients</li><li><b>43</b> ingredients marked high-risk</li><li><b>v3.0.0</b> on the App Store</li></ul>
-<section class="sec" aria-label="How it works">
-<div class="hf"><div class="n">Start observation<small>One at a time</small></div><i class="l"></i><div class="n">Daily log<small>Once per day</small></div><i class="l"></i><div class="n">End observation<small>Conditional update</small></div><i class="l"></i><div class="n">Status<small>Derived from records</small></div></div>
+<ul class="nums"><li><b>120</b><span>baby-food ingredients</span></li><li><b>43</b><span>ingredients marked high-risk</span></li><li><b>v3.0.0</b><span>on the App Store</span></li></ul>
+<section class="sec"><h2>What changes without accounts or server sync?</h2><p>Ingredient status is calculated from records, and observation rules are checked in code. With no server accounts or sync, records are stored only on the device.</p></section>
+<div class="shots phones"><figure><a href="../../assets/allergy.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/allergy.png" alt="Example records · observation status by ingredient" loading="lazy" decoding="async"></picture></a><figcaption>Example records · observation status by ingredient</figcaption></figure><figure><a href="../../assets/allergy_detail.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/allergy_detail.png" alt="Example records · three-day observation flow" loading="lazy" decoding="async"></picture></a><figcaption>Example records · three-day observation flow</figcaption></figure></div>
+<section class="sec">
+<h2>Highlights</h2>
+<ul class="facts"><li>Ingredient status is not stored but <b>calculated from records</b></li><li>A transaction check keeps observations to <b>one at a time</b></li></ul>
+</section>
+<section class="sec">
+<h2>How it works</h2>
 <ol class="walk"><li><b>Start observation</b><p>A new observation cannot start while another ingredient is being observed. This check runs in the same transaction as the save.</p></li><li><b>Daily log</b><p>If a record already exists for the day, the app returns it and does not create a new one.</p></li><li><b>End observation</b><p>The update carries a condition so that only an unfinished observation can be ended. If the state changed in the meantime, it reports an error.</p></li><li><b>Status</b><p>An ingredient's status is not stored; it is calculated from observation records each time. Reminders are also rebuilt from the stored records.</p></li></ol>
 </section>
-<section class="sec"><h2>What changes without accounts or server sync?</h2><p>Ingredient status is calculated from records, and observation rules are checked in code. With no server accounts or sync, records are stored only on the device.</p></section>
-<div class="shots phones"><figure><img src="../../assets/allergy.png" alt="Example records · observation status by ingredient" loading="lazy" decoding="async"><figcaption>Example records · observation status by ingredient</figcaption></figure><figure><img src="../../assets/allergy_detail.png" alt="Example records · three-day observation flow" loading="lazy" decoding="async"><figcaption>Example records · three-day observation flow</figcaption></figure></div>
 <p class="scope">A recording tool, not a medical diagnosis or an allergy safety guarantee.</p>
 <nav class="pager" aria-label="Other projects"><a href="stock-game.html">← Stock Game</a><a href="letter-game.html">Infinity Chosung →</a></nav>
 </main>

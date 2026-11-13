@@ -37,13 +37,17 @@
 <ul class="chips"><li>React Native</li><li>Expo</li><li>TypeScript</li><li>SQLite</li></ul>
 <div class="btns"><a class="btn p" href="https://apps.apple.com/kr/app/id6827961276" target="_blank" rel="noreferrer">App Store</a><a class="btn" href="https://github.com/mhju0/allergy-tracker" target="_blank" rel="noreferrer">코드</a></div>
 </div>
-<ul class="facts three"><li><b>120종</b> 이유식 재료</li><li><b>43종</b> 고위험 표시 재료</li><li><b>v3.0.0</b> App Store 출시</li></ul>
-<section class="sec" aria-label="동작 흐름">
-<div class="hf"><div class="n">관찰 시작<small>한 번에 하나</small></div><i class="l"></i><div class="n">매일 기록<small>같은 날 한 번</small></div><i class="l"></i><div class="n">관찰 종료<small>조건부 갱신</small></div><i class="l"></i><div class="n">상태 계산<small>기록에서 계산</small></div></div>
+<ul class="nums"><li><b>120종</b><span>이유식 재료</span></li><li><b>43종</b><span>고위험 표시 재료</span></li><li><b>v3.0.0</b><span>App Store 출시</span></li></ul>
+<section class="sec"><h2>계정과 서버 동기화 없이 만들면?</h2><p>재료 상태는 기록에서 계산하고 관찰 규칙은 코드로 검사합니다. 서버 계정과 동기화를 두지 않아 기록은 기기 안에만 저장됩니다.</p></section>
+<div class="shots phones"><figure><a href="../../assets/allergy.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/allergy.png" alt="예시 기록 · 재료별 관찰 현황" loading="lazy" decoding="async"></picture></a><figcaption>예시 기록 · 재료별 관찰 현황</figcaption></figure><figure><a href="../../assets/allergy_detail.png" target="_blank" rel="noreferrer"><picture><img src="../../assets/allergy_detail.png" alt="예시 기록 · 3일 관찰 흐름" loading="lazy" decoding="async"></picture></a><figcaption>예시 기록 · 3일 관찰 흐름</figcaption></figure></div>
+<section class="sec">
+<h2>핵심</h2>
+<ul class="facts"><li>재료 상태는 저장하지 않고 <b>기록에서 계산</b></li><li>관찰은 <b>한 번에 하나</b>만 진행되도록 트랜잭션에서 검사</li></ul>
+</section>
+<section class="sec">
+<h2>동작 흐름</h2>
 <ol class="walk"><li><b>관찰 시작</b><p>관찰 중인 재료가 있으면 새 관찰을 시작할 수 없습니다. 이 검사는 저장과 같은 트랜잭션 안에서 합니다.</p></li><li><b>매일 기록</b><p>같은 날 기록이 이미 있으면 새로 만들지 않고 있던 기록을 돌려줍니다.</p></li><li><b>관찰 종료</b><p>아직 끝나지 않은 관찰만 종료되도록 조건을 붙여 갱신합니다. 그사이 상태가 바뀌었으면 오류로 알립니다.</p></li><li><b>상태 계산</b><p>재료의 상태를 따로 저장하지 않고 관찰 기록에서 매번 계산합니다. 알림도 저장된 기록을 기준으로 다시 만듭니다.</p></li></ol>
 </section>
-<section class="sec"><h2>계정과 서버 동기화 없이 만들면?</h2><p>재료 상태는 기록에서 계산하고 관찰 규칙은 코드로 검사합니다. 서버 계정과 동기화를 두지 않아 기록은 기기 안에만 저장됩니다.</p></section>
-<div class="shots phones"><figure><img src="../../assets/allergy.png" alt="예시 기록 · 재료별 관찰 현황" loading="lazy" decoding="async"><figcaption>예시 기록 · 재료별 관찰 현황</figcaption></figure><figure><img src="../../assets/allergy_detail.png" alt="예시 기록 · 3일 관찰 흐름" loading="lazy" decoding="async"><figcaption>예시 기록 · 3일 관찰 흐름</figcaption></figure></div>
 <p class="scope">의료적 진단이나 알레르기 안전 보장이 아닌 기록 도구입니다.</p>
 <nav class="pager" aria-label="다른 프로젝트"><a href="stock-game.html">← Stock Game</a><a href="letter-game.html">무한초성 →</a></nav>
 </main>

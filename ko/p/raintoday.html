@@ -37,15 +37,19 @@
 <ul class="chips"><li>TypeScript</li><li>Next.js</li><li>PostgreSQL</li></ul>
 <div class="btns"><a class="btn p" href="https://raintoday.vercel.app" target="_blank" rel="noreferrer">사이트 열기</a><a class="btn" href="https://github.com/mhju0/raintoday" target="_blank" rel="noreferrer">코드</a></div>
 </div>
-<ul class="facts three"><li><b>97곳</b> 기상청 관측 지점</li><li><b>9,712건</b> 저장된 예보 · 2026.10.15</li><li><b>5곳</b> 비교하는 날씨 서비스</li></ul>
-<section class="sec" aria-label="동작 흐름">
-<div class="hf"><div class="n">예보 수집<small>다섯 서비스</small></div><i class="l"></i><div class="n">저장<small>발표 당시 그대로</small></div><i class="l"></i><div class="n">관측 대조<small>기상청 97개 지점</small></div><i class="l"></i><div class="n">가중 합산<small>Brier 점수</small></div></div>
+<ul class="nums"><li><b>97곳</b><span>기상청 관측 지점</span></li><li><b>9,712건</b><span>저장된 예보<small>2026.10.15</small></span></li><li><b>5곳</b><span>비교하는 날씨 서비스</span></li></ul>
+<section class="sec"><h2>왜 발표 당시의 예보를 보존하나?</h2><p>발표 당시의 예보는 그대로 보존하고, 일부 수집 실패만 조건과 대기 시간을 둔 재시도로 보완합니다. 과거 예보를 나중 값으로 채우지 않으며, 재시도 완료와 전체 수집 성공을 구분합니다. 자료 없음과 강수 확률 <span class="nb">0%도</span> 다른 상태로 다룹니다.</p></section>
+<div class="shots one"><figure><a href="../../assets/rain-jeju-20261013.jpg" target="_blank" rel="noreferrer"><picture><img src="../../assets/rain-jeju-20261013.jpg" alt="제주 예보 화면 · 현재 날씨 아님" loading="lazy" decoding="async"></picture></a><figcaption>제주 예보 화면 · 현재 날씨 아님</figcaption></figure></div>
+<section class="sec">
+<h2>핵심</h2>
+<ul class="facts"><li>발표 당시의 예보는 <b>덮어쓰지 않고</b> 그대로 보존</li><li>기상청 <b>97개 지점</b>의 실제 관측과 대조</li></ul>
+</section>
+<section class="sec">
+<h2>동작 흐름</h2>
 <ol class="walk"><li><b>예보 수집</b><p><span class="nb">Open-Meteo</span>, 기상청, Pirate Weather, WeatherAPI, Visual Crossing의 예보를 예약 실행으로 받아 옵니다. 기상청 전송 오류는 간격을 늘려 가며 세 번까지 다시 시도합니다.</p></li><li><b>저장</b><p>지점, 날짜, 회차를 기본 키로 두고 이미 있는 예보는 건드리지 않습니다. 먼저 저장된 예보를 나중 값이 덮어쓸 수 없습니다.</p></li><li><b>관측 대조</b><p>기상청 97개 지점의 실제 관측을 나중에 받아 저장해 둔 예보와 비교합니다. 2026년 10월 15일 기준 예보 9,712건과 관측 5,529건이 쌓여 있었습니다.</p></li><li><b>가중 합산</b><p>최근 Brier 점수가 좋은 서비스에 더 큰 비중을 줍니다. 두 방식의 성적 비교에서 비교 건수가 부족하거나, 가중 합산이 똑같이 반영할 때보다 성적이 나쁘면 모든 서비스를 똑같이 반영합니다.</p></li></ol>
 </section>
-<section class="sec"><h2>왜 발표 당시의 예보를 보존하나?</h2><p>발표 당시의 예보는 그대로 보존하고, 일부 수집 실패만 조건과 대기 시간을 둔 재시도로 보완합니다. 과거 예보를 나중 값으로 채우지 않으며, 재시도 완료와 전체 수집 성공을 구분합니다. 자료 없음과 강수 확률 <span class="nb">0%도</span> 다른 상태로 다룹니다.</p></section>
-<div class="shots one"><figure><img src="../../assets/rain-jeju-20261013.jpg" alt="제주 예보 화면 · 현재 날씨 아님" loading="lazy" decoding="async"><figcaption>제주 예보 화면 · 현재 날씨 아님</figcaption></figure></div>
 <p class="scope">전체 예보의 정확도 우위를 입증한 결과는 아닙니다.</p>
-<nav class="pager" aria-label="다른 프로젝트"><a href="filing-digest.html">← Filing Digest</a><a href="stock-game.html">Stock Game →</a></nav>
+<nav class="pager" aria-label="다른 프로젝트"><a href="mammacare.html">← Mammacare</a><a href="stock-game.html">Stock Game →</a></nav>
 </main>
 </div>
 <script src="../../site.js"></script>
