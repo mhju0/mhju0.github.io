@@ -37,12 +37,12 @@
 <ul class="chips"><li>TypeScript</li><li>Next.js</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Python · scikit-learn</li></ul>
 <div class="btns"><a class="btn p" href="https://fullcourt.fyi/" target="_blank" rel="noreferrer">사이트 열기</a><a class="btn" href="https://github.com/mhju0/fullcourt" target="_blank" rel="noreferrer">코드</a></div>
 </div>
-<ul class="facts three"><li><b>51,695</b> 저장된 경기 · 예정 일정 포함</li><li><b>30시즌</b> 슛 위치 자료 · 1996-97부터</li><li><b>14행</b> 외부 기록과 대조해 수정</li></ul>
+<ul class="facts three"><li><b>51,695</b> 저장된 경기 · 예정 일정 포함</li><li><b>30시즌</b> 슛 위치 자료 · 1996-97부터</li><li><b>346건</b> NBA 박스스코어로 추가 수정한 연장전 기록</li></ul>
 <section class="sec" aria-label="동작 흐름">
 <div class="hf"><div class="n">일정 수집<small>매일 자동 실행</small></div><i class="l"></i><div class="n">휴식 · 이동 계산<small>TypeScript</small></div><i class="l"></i><div class="n">저장<small>PostgreSQL · 행 잠금</small></div><i class="l"></i><div class="n">화면<small>Next.js · CDN 캐시</small></div></div>
 <ol class="walk"><li><b>일정 수집</b><p>예약 실행이 매일 경기 일정과 결과를 받아 옵니다. 실행 요청은 비밀 토큰을 시간 차이가 드러나지 않는 방식으로 비교해 확인합니다.</p></li><li><b>휴식 · 이동 계산</b><p>경기 일정에서 팀별 휴식일과 도시 간 이동 거리를 계산하고, 팀 일정과 경기 상세를 연결합니다.</p></li><li><b>저장</b><p>경기 한 건을 갱신할 때 READ COMMITTED 트랜잭션에서 그 행을 잠급니다. 여러 행을 잠글 때는 경기 ID 순서로 잠가 교착 상태가 생기지 않게 했습니다.</p></li><li><b>화면</b><p>지난 시즌 응답은 CDN에 한 시간, 시즌 중 응답은 60초 동안 보관합니다. 요청 값은 Zod 스키마로 검사하고 틀리면 400을 돌려줍니다.</p></li></ol>
 </section>
-<section class="sec"><h2>저장된 경기가 맞는지 어떻게 확인했나?</h2><p>AI 에이전트로 저장된 경기를 구할 수 있는 외부 기록과 대조하고, 틀린 14행은 직접 SQL로 고친 뒤 지표를 다시 계산했습니다.</p></section>
+<section class="sec"><h2>저장된 경기가 맞는지 어떻게 확인했나?</h2><p>전체 기간을 점검해 빠진 연장전 기록 783건을 1차 출처로 채웠습니다. 이어서 아직 확인되지 않은 5,815경기를 NBA 박스스코어와 대조해 346건을 더 고친 뒤 지표를 다시 계산했습니다.</p></section>
 <div class="shots"><figure><img src="../../assets/fullcourt-games-20261026.png" alt="2024년 12월 2일 경기 · 팀 전적과 휴식·이동 부담 비교" loading="lazy" decoding="async"><figcaption>2024년 12월 2일 경기 · 팀 전적과 휴식·이동 부담 비교</figcaption></figure><figure><img src="../../assets/fullcourt-shooting-2025-26-20261105.webp" alt="선수별 휴식 전후 슈팅 비교 · 2025-26 시즌" loading="lazy" decoding="async"><figcaption>선수별 휴식 전후 슈팅 비교 · 2025-26 시즌</figcaption></figure></div>
 <p class="scope">휴식 지표는 과거 경기의 경향이며, 휴식이 승패의 원인이라는 뜻은 아닙니다.</p>
 <nav class="pager" aria-label="다른 프로젝트"><a href="filing-agent.html">← Filing Agent</a><a href="mammacare.html">Mammacare →</a></nav>

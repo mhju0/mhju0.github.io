@@ -47,7 +47,7 @@
 <h2><a href="p/fullcourt.html">FullCourt</a></h2>
 <p class="pd">Compare rest days and travel distance for NBA teams</p>
 <div class="hf"><div class="n">Schedule collection<small>Runs daily</small></div><i class="l"></i><div class="n">Rest · Travel<small>TypeScript</small></div><i class="l"></i><div class="n">Storage<small>PostgreSQL · row locks</small></div><i class="l"></i><div class="n">Pages<small>Next.js · CDN cache</small></div></div>
-<ul class="facts"><li>Game updates run in a transaction with <b>row locks</b></li><li>Checked against available outside records and <b>fixed 14 rows</b></li><li>Lock order fixed by game ID to prevent deadlocks</li><li>Transaction tests run on <b>real PostgreSQL</b> in CI</li></ul>
+<ul class="facts"><li>Game updates run in a transaction with <b>row locks</b></li><li><b>783</b> missing overtime records filled from primary sources</li><li>Lock order fixed by game ID to prevent deadlocks</li><li>Transaction tests run on <b>real PostgreSQL</b> in CI</li></ul>
 <div class="acts"><a class="btn s" href="p/fullcourt.html" aria-label="FullCourt · Details">Details →</a><a class="btn s" href="https://fullcourt.fyi/" target="_blank" rel="noreferrer">Open site<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/fullcourt" target="_blank" rel="noreferrer">Code<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
 </article>
 <article class="card">
@@ -83,7 +83,7 @@
 <div class="in">
 <p class="pd">Practice investing in Korean and US stocks with virtual money</p>
 <div class="hf"><div class="n">Order<small>JWT auth</small></div><i class="l"></i><div class="n">Row lock<small>FOR UPDATE</small></div><i class="l"></i><div class="n">Execution<small>Concurrency tests</small></div><i class="l"></i><div class="n">Asset history<small>Hourly</small></div></div>
-<ul class="facts"><li>Balance check and deduction under one <b>row lock</b></li><li><b>14</b> concurrent-order tests on real PostgreSQL</li></ul>
+<ul class="facts"><li>Balance check and deduction under one <b>row lock</b></li><li><b>17</b> concurrency test cases on real PostgreSQL</li></ul>
 <div class="acts"><a class="btn s" href="p/stock-game.html" aria-label="Stock Game · Details">Details →</a><a class="btn s" href="https://stock-game-gray.vercel.app" target="_blank" rel="noreferrer">Open site<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a><a class="btn s" href="https://github.com/mhju0/stock-game" target="_blank" rel="noreferrer">Code<svg class="out" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4"/></svg></a></div>
 </div>
 </details>

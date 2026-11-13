@@ -37,14 +37,14 @@
 <ul class="chips"><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>React</li></ul>
 <div class="btns"><a class="btn p" href="https://stock-game-gray.vercel.app" target="_blank" rel="noreferrer">Open site</a><a class="btn" href="https://github.com/mhju0/stock-game" target="_blank" rel="noreferrer">Code</a></div>
 </div>
-<ul class="facts three"><li><b>361</b> backend tests · Nov 5, 2026</li><li><b>14</b> concurrency tests on real PostgreSQL</li><li><b>21</b> browser flow tests</li></ul>
+<ul class="facts three"><li><b>392</b> backend tests · Nov 12, 2026</li><li><b>17</b> concurrency test cases on real PostgreSQL</li><li><b>21</b> browser flow tests</li></ul>
 <section class="sec" aria-label="How it works">
 <div class="hf"><div class="n">Order<small>JWT auth</small></div><i class="l"></i><div class="n">Row lock<small>FOR UPDATE</small></div><i class="l"></i><div class="n">Execution<small>Concurrency tests</small></div><i class="l"></i><div class="n">Asset history<small>Hourly</small></div></div>
 <ol class="walk"><li><b>Order</b><p>Only orders from signed-in users are accepted. Sign-in requests are rate-limited.</p></li><li><b>Row lock</b><p>The game-session row is locked before the balance is checked and deducted. Two simultaneous orders cannot spend the same balance twice.</p></li><li><b>Execution</b><p>Buying twice with the same balance and selling more than is held are tested by sending concurrent requests to a real PostgreSQL database.</p></li><li><b>Asset history</b><p>Committing a trade is separated from saving the asset record that follows. Only one of several workers runs the recording job.</p></li></ol>
 </section>
-<section class="sec"><h2>Should an order run again if later recording fails?</h2><p>No. If saving the asset record fails after a trade has committed, the server does not run the order again: it logs the failure and returns success for the trade that is already saved. Orders do not carry an idempotency key yet, so the same request sent again is processed as a new order.</p></section>
+<section class="sec"><h2>Should an order run again if later recording fails?</h2><p>No. If saving the asset record fails after a trade has committed, the server does not run the order again: it logs the failure and returns success for the trade that is already saved. In case a client resends after losing the response, orders can carry an idempotency key: a resend with the same key returns the stored fill instead of trading again, and a request without a key is processed as a new order.</p></section>
 <div class="shots one"><figure><img src="../../assets/stock-games-en-20260929.png" alt="Demo game list · active and past games" loading="lazy" decoding="async"><figcaption>Demo game list · active and past games</figcaption></figure></div>
-<p class="scope">Trades use simulated money, not real funds. Not load-tested, and not verified against the production database.</p>
+<p class="scope">Trades use simulated money, not real funds. Not load-tested.</p>
 <nav class="pager" aria-label="Other projects"><a href="raintoday.html">← Raintoday</a><a href="allergy-tracker.html">Allergy Tracker →</a></nav>
 </main>
 </div>
