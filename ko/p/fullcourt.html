@@ -34,15 +34,15 @@
 <p class="kind">웹 · 데이터 · 개인 프로젝트 · 2026.03–2026.11<span class="st"><span class="dot"></span>운영 중</span></p>
 <h1>FullCourt</h1>
 <p class="intro">NBA 경기 사이의 휴식과 이동을 계산하고, 휴식 조건에 따른 승률을 홈팀 승률과 함께 비교할 수 있게 만들었습니다. 휴식 격차와 시대별 결과도 나누어 볼 수 있습니다.</p>
-<ul class="chips"><li>TypeScript</li><li>Next.js</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Python · scikit-learn</li></ul>
+<p class="stk"><span>TypeScript ·</span> <span>Next.js ·</span> <span>PostgreSQL ·</span> <span>Drizzle ORM ·</span> <span>scikit-learn</span></p>
 <div class="btns"><a class="btn p" href="https://fullcourt.fyi/" target="_blank" rel="noreferrer">사이트 열기</a><a class="btn" href="https://github.com/mhju0/fullcourt" target="_blank" rel="noreferrer">코드</a></div>
 </div>
-<ul class="nums"><li><b>783건</b><span>1차 출처로 보완한 연장전 기록</span></li><li><b>346건</b><span>NBA 박스스코어로 추가 수정한 연장전 기록</span></li><li><b>51,695</b><span>저장된 경기<small>예정 일정 포함</small></span></li></ul>
-<section class="sec"><h2>저장된 경기가 맞는지 어떻게 확인했나?</h2><p>전체 기간을 점검해 빠진 연장전 기록 783건을 1차 출처로 채웠습니다. 이어서 아직 확인되지 않은 5,815경기를 NBA 박스스코어와 대조해 346건을 더 고친 뒤 지표를 다시 계산했습니다.</p></section>
+<ul class="nums"><li><b>783건</b><span>원자료로 보완한 연장전 기록</span></li><li><b>346건</b><span>NBA 박스스코어로 추가 수정한 연장전 기록</span></li><li><b>51,695</b><span>저장된 경기<small>예정 일정 포함</small></span></li></ul>
+<section class="sec"><h2>저장된 경기가 맞는지 어떻게 확인했나?</h2><p>전체 기간을 점검해 빠진 연장전 기록 783건을 원자료로 채웠습니다. 이어서 아직 확인되지 않은 5,815경기를 NBA 박스스코어와 대조해 346건을 더 고친 뒤 지표를 다시 계산했습니다.</p></section>
 <div class="shots one"><figure><a href="../../assets/fullcourt-games-20261026.png" target="_blank" rel="noreferrer"><picture><source media="(max-width:640px)" srcset="../../assets/thumb-fullcourt-20261113.webp"><img src="../../assets/fullcourt-games-20261026.png" alt="2024년 12월 2일 경기 · 팀 전적과 휴식·이동 부담 비교" loading="lazy" decoding="async"></picture></a><figcaption>2024년 12월 2일 경기 · 팀 전적과 휴식·이동 부담 비교</figcaption></figure><figure><a href="../../assets/fullcourt-shooting-2025-26-20261105.webp" target="_blank" rel="noreferrer"><picture><img src="../../assets/fullcourt-shooting-2025-26-20261105.webp" alt="선수별 휴식 전후 슈팅 비교 · 2025-26 시즌" loading="lazy" decoding="async"></picture></a><figcaption>선수별 휴식 전후 슈팅 비교 · 2025-26 시즌</figcaption></figure></div>
 <section class="sec">
 <h2>핵심</h2>
-<ul class="facts"><li>경기 갱신은 트랜잭션과 <b>행 잠금</b>으로 처리</li><li>빠진 연장전 기록 <b>783건</b>을 1차 출처로 보완</li><li>잠금 순서를 경기 ID로 고정해 교착 상태 방지</li><li>CI에서 <b>실제 PostgreSQL</b>로 트랜잭션 테스트</li></ul>
+<ul class="facts"><li>경기 갱신은 트랜잭션과 <b>행 잠금</b>으로 처리</li><li>빠진 연장전 기록 <b>783건</b>을 원자료로 보완</li><li>잠금 순서를 경기 ID로 고정해 교착 상태 방지</li><li>CI에서 <b>실제 PostgreSQL</b>로 트랜잭션 테스트</li></ul>
 </section>
 <section class="sec">
 <h2>동작 흐름</h2>

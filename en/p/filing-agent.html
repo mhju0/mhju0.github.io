@@ -34,11 +34,11 @@
 <p class="kind">Web · AI · Personal project · Sep–Nov 2026</p>
 <h1>Filing Agent</h1>
 <p class="intro">A local app for asking about and comparing figures from selected past company filings. AI reads each question, and code picks the data, does the math and writes the answer.</p>
-<ul class="chips"><li>Python</li><li>FastAPI</li><li>LangGraph</li><li>PostgreSQL</li><li>React</li></ul>
+<p class="stk"><span>Python ·</span> <span>FastAPI ·</span> <span>LangGraph ·</span> <span>PostgreSQL ·</span> <span>React</span></p>
 <div class="btns"><a class="btn p" href="https://filing-agent.vercel.app/" target="_blank" rel="noreferrer">View demo</a><a class="btn" href="https://github.com/mhju0/filing-agent" target="_blank" rel="noreferrer">Code</a></div>
 </div>
-<ul class="nums"><li><b>120</b><span>Korean and English runs passed</span></li><li><b>2.96 s</b><span>median response time<small>M1 Pro</small></span></li><li><b>15</b><span>filing figures verified</span></li></ul>
-<section class="sec"><h2>Should the model do the arithmetic?</h2><p>In model experiments, the model described increases and decreases wrongly even when it picked the right evidence. So the model only interprets the question, and code selects the evidence, calculates with Decimal and writes the financial answer in Korean or English.</p></section>
+<ul class="nums"><li><b>120</b><span>Korean and English runs passed</span></li><li><b>2.96 s</b><span>median response time<small>M1 Pro</small></span></li><li><b>0</b><span>source or figure violations in 120 runs</span></li></ul>
+<section class="sec"><h2>Should the model do the arithmetic?</h2><p>Two local models picked the right revenue data yet described a 14.33% drop as a rise. So the model only interprets the question, and code selects the evidence, calculates with Decimal and writes the financial answer in Korean or English.</p></section>
 <div class="shots one"><figure><a href="../../assets/agent-en-20261001.png" target="_blank" rel="noreferrer"><picture><source media="(max-width:640px)" srcset="../../assets/thumb-agent-en-20261113.webp"><img src="../../assets/agent-en-20261001.png" alt="Recorded research · annual revenue comparison with source evidence" loading="lazy" decoding="async"></picture></a><figcaption>Recorded research · annual revenue comparison with source evidence</figcaption></figure></div>
 <section class="sec">
 <h2>Highlights</h2>
