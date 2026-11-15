@@ -34,11 +34,11 @@
 <p class="kind">웹 · AI · 개인 프로젝트 · 2026.09–2026.11</p>
 <h1>Filing Agent</h1>
 <p class="intro">정해 둔 과거 기업 공시의 숫자를 질문하고 비교하는 로컬 앱입니다. AI는 질문의 뜻을 파악하고, 프로그램 코드가 자료 선택과 계산, 답변 작성을 맡도록 나눴습니다.</p>
-<ul class="chips"><li>Python</li><li>FastAPI</li><li>LangGraph</li><li>PostgreSQL</li><li>React</li></ul>
+<p class="stk"><span>Python ·</span> <span>FastAPI ·</span> <span>LangGraph ·</span> <span>PostgreSQL ·</span> <span>React</span></p>
 <div class="btns"><a class="btn p" href="https://filing-agent.vercel.app/" target="_blank" rel="noreferrer">데모 보기</a><a class="btn" href="https://github.com/mhju0/filing-agent" target="_blank" rel="noreferrer">코드</a></div>
 </div>
-<ul class="nums"><li><b>120회</b><span><span class="nb">한·영</span> 시나리오 실행 통과</span></li><li><b>2.96초</b><span>응답 시간 중앙값<small>M1 Pro</small></span></li><li><b>15개</b><span>검증한 공시 수치</span></li></ul>
-<section class="sec"><h2>모델이 계산까지 맡아야 할까?</h2><p>모델 실험에서는 근거를 맞게 골라도 <span class="nb">증가·감소</span> 설명이 틀렸습니다. 모델에는 질문 의도 해석만 맡기고, 근거 <span class="nb">선택·Decimal</span> <span class="nb">계산·한영</span> 금융 답변은 코드가 결정하도록 했습니다.</p></section>
+<ul class="nums"><li><b>120회</b><span><span class="nb">한·영</span> 시나리오 실행 통과</span></li><li><b>2.96초</b><span>응답 시간 중앙값<small>M1 Pro</small></span></li><li><b>0건</b><span>120회 중 <span class="nb">출처·수치</span> 위반</span></li></ul>
+<section class="sec"><h2>모델이 계산까지 맡아야 할까?</h2><p>로컬 모델 두 개가 맞는 매출 근거를 고르고도 14.33% 감소를 증가로 설명했습니다. 그래서 모델에는 질문 의도 해석만 맡기고, 근거 <span class="nb">선택·Decimal</span> <span class="nb">계산·한영</span> 금융 답변은 코드가 결정하도록 했습니다.</p></section>
 <div class="shots one"><figure><a href="../../assets/agent-ko-20261001b.png" target="_blank" rel="noreferrer"><picture><source media="(max-width:640px)" srcset="../../assets/thumb-agent-ko-20261113.webp"><img src="../../assets/agent-ko-20261001b.png" alt="녹화된 조사 · 연간 매출 비교와 원문 근거" loading="lazy" decoding="async"></picture></a><figcaption>녹화된 조사 · 연간 매출 비교와 원문 근거</figcaption></figure></div>
 <section class="sec">
 <h2>핵심</h2>
